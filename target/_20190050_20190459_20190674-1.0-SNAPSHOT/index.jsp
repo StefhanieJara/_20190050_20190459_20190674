@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <a
-                                                href="visualizacionActoresDirectores.html"
+                                                href="<%=request.getContextPath()%>/MenuSupervivientesServlet"
                                                 class="btn btn-danger"
                                         >Ir a supervivientes</a
                                         >

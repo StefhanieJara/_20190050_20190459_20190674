@@ -104,7 +104,7 @@
             </div>
         </div>
         <a href="<%=request.getContextPath()%>/MenuZombiesServlet" type="button" class="btn btn-success">Menu Zombies</a>
-        <a type="<%=request.getContextPath()%>/MenuSupervivientesServlet" class="btn btn-warning">
+        <a href="<%=request.getContextPath()%>/MenuSupervivientesServlet" class="btn btn-warning">
             Menu Supervivientes
         </a>
         <div id="main-container">

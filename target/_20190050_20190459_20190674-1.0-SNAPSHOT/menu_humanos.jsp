@@ -1,8 +1,7 @@
 <%@ page import="com.example._20190050_20190459_20190674.Beans.Humano" %>
-<%@ page import="com.example._20190050_20190459_20190674.Servlet.MenuHumanosServlet" %>
 <%@ page import="java.util.Objects" %>
-<jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
 
+<jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +104,7 @@
             </div>
         </div>
         <a href="<%=request.getContextPath()%>/MenuZombiesServlet" type="button" class="btn btn-success">Menu Zombies</a>
-        <a type="<%=request.getContextPath()%>/MenuSupervivientesServlet" class="btn btn-warning">
+        <a href="<%=request.getContextPath()%>/MenuSupervivientesServlet" class="btn btn-warning">
             Menu Supervivientes
         </a>
         <div id="main-container">
@@ -124,7 +123,7 @@
                     <td><%=humano.getId()%></td>
                     <td><%=humano.getNombre_apellido()%></td>
                     <td><%=humano.getSexo()%></td>
-                    <td><%=humano.getEstado_rol()%>></td>
+                    <td><%=humano.getEstado_rol()%></td>
 
                 </tr>
                 <%}%>
