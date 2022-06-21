@@ -8,7 +8,15 @@ public class Objetos {
 
     private int id_vacuna;
     private float efectividad_vacunal;
+    private int id_efectividad;
 
+    public int getId_efectividad() {
+        return id_efectividad;
+    }
+
+    public void setId_efectividad(int id_efectividad) {
+        this.id_efectividad = id_efectividad;
+    }
 
     public int getId_objeto() {
         return id_objeto;

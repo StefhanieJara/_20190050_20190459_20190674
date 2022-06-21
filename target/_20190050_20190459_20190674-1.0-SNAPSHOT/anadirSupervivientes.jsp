@@ -78,6 +78,7 @@
                             <option value="">
                               Selecciona el género
                             </option>
+<<<<<<< HEAD
                             <option value="M">
                               Masculino
                             </option>
@@ -85,6 +86,15 @@
                               Femenino
                             </option>
                             <option value="O">
+=======
+                            <option value="Selecciona la sede">
+                              Masculino
+                            </option>
+                            <option value="Selecciona la sede">
+                              Femenino
+                            </option>
+                            <option value="Selecciona la sede">
+>>>>>>> c281553a8c5707c5625ca4e1e862c527cf239b40
                               Otro
                             </option>
                           </select>
