@@ -13,7 +13,7 @@ public class MenuHumanosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HumanoDao humanoDao = new HumanoDao();
-        request.setAttribute("listaHumano",humanoDao.obtenerPerfil());
+        request.setAttribute("listaHumano",humanoDao.obtenerLista());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("menu_humanos.jsp");
         requestDispatcher.forward(request,response);
     }

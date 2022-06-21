@@ -5,7 +5,7 @@ public class Humano {
     private int Id;
     private String nombre_apellido;
     private String sexo;
-    private int estado_rol;
+    private String estado_rol;
 
     public int getId() {
         return Id;
@@ -31,11 +31,11 @@ public class Humano {
         this.sexo = sexo;
     }
 
-    public int getEstado_rol() {
+    public String getEstado_rol() {
         return estado_rol;
     }
 
-    public void setEstado_rol(int estado_rol) {
+    public void setEstado_rol(String estado_rol) {
         this.estado_rol = estado_rol;
     }
 }

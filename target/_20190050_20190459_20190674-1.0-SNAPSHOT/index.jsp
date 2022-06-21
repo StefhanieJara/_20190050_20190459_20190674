@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +80,7 @@
                                         </ul>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <a href="gestionSalas.html" class="btn btn-danger"
+                                        <a href="<%=request.getContextPath()%>/MenuHumanosServlet" class="btn btn-danger"
                                         >Ir a Humanos</a
                                         >
                                     </div>

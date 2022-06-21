@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class HumanoDao extends DaoBase{
-    public ArrayList<Humano> obtenerPerfil() {
+    public ArrayList<Humano> obtenerLista() {
 
         ArrayList<Humano> listaHumano = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class HumanoDao extends DaoBase{
                 humano.setId(rs.getInt(1));
                 humano.setNombre_apellido(rs.getString(2));
                 humano.setSexo(rs.getString(3));
-                humano.setEstado_rol(Integer.parseInt(rs.getString(4)));
+                humano.setEstado_rol(rs.getString(4));
                 listaHumano.add(humano);
             }
 

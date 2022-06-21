@@ -1,10 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: stefh
-  Date: 20/06/2022
-  Time: 19:48
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Humano" %>
+<%@ page import="com.example._20190050_20190459_20190674.Servlet.MenuHumanosServlet" %>
+<%@ page import="java.util.Objects" %>
+<jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,34 +104,30 @@
                 </h3>
             </div>
         </div>
-        <button type="button" class="btn btn-success">Menu Zoombies</button>
-        <button type="button" class="btn btn-warning">
+        <a href="<%=request.getContextPath()%>/MenuZombiesServlet" type="button" class="btn btn-success">Menu Zombies</a>
+        <a type="<%=request.getContextPath()%>/MenuSupervivientesServlet" class="btn btn-warning">
             Menu Supervivientes
-        </button>
+        </a>
         <div id="main-container">
             <table>
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Codigo PUCP</th>
-                    <th>Correo PUCP</th>
-                    <th>Telefono</th>
-                    <th>Nacimiento</th>
-                    <th>Distrito</th>
+                    <th>Nombre completo</th>
+                    <th>Sexo</th>
+                    <th>Estado</th>
+
                 </tr>
                 </thead>
+                <%for (Humano humano:listaHumano){%>
                 <tr>
-                    <td>12345</td>
-                    <td>Mario</td>
-                    <td>Montaneda</td>
-                    <td>20152014</td>
-                    <td>ma@pucp.pe</td>
-                    <td>972241302</td>
-                    <td>12/12/2012</td>
-                    <td>Comas</td>
+                    <td><%=humano.getId()%></td>
+                    <td><%=humano.getNombre_apellido()%></td>
+                    <td><%=humano.getSexo()%></td>
+                    <td><%=humano.getEstado_rol()%>></td>
+
                 </tr>
+                <%}%>
             </table>
         </div>
     </main>
