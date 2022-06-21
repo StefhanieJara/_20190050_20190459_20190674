@@ -56,7 +56,7 @@
                       class="card-header"
                       style="background-color: #e72d4b; color: white"
               >
-                <h4 class="my-2">Registrar Superviviente</h4>
+                <h4 class="my-2">Editar Superviviente</h4>
               </div>
               <div class="card-body p-4 p-md-5">
                 <form>
@@ -73,24 +73,6 @@
                                 placeholder="Ingrese los nombres"
                         />
                       </div>
-                      <div class="form-outline mb-4">
-                        <div class="rows-auto">
-                          <select
-                                  class="form-select form-select-sm"
-                                  name="filtro"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="Selecciona la sede">
-                              Selecciona el género
-                            </option>
-                            <option value="Selecciona la sede">
-                              Mujer
-                            </option>
-                            <option value="Selecciona la sede">
-                              Varón
-                            </option>
-                          </select>
-                        </div>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"
@@ -124,7 +106,7 @@
                                   name="filtro"
                                   aria-label=".form-select-sm example"
                           >
-                            <option value="Selecciona la sede">
+                            <option value="Selecciona la pareja">
                               Selecciona la pareja
                             </option>
                             <%for(Superviviente listasuper: listasupervivientes){%>
@@ -141,7 +123,7 @@
                               class="img-thumbnail"
                               width="200px"
                               height="200px"
-                              alt="medicamento"
+                              alt="superviviente"
                       />
                     </div>
                   </div>
@@ -150,7 +132,7 @@
                     <input
                             class="btn btn-tele"
                             type="submit"
-                            value="Guardar Superviviente"
+                            value="Actualizar Superviviente"
                     />
                   </div>
                 </form>

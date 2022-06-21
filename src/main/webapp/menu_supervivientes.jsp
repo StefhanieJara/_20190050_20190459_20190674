@@ -61,7 +61,7 @@
             background-color: #ddd;
         }
         tr:hover td {
-            background-color: #efb810;
+            background-color: #51514f;
             color: white;
         }
     </style>
