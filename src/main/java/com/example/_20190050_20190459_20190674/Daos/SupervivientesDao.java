@@ -59,6 +59,35 @@ public class SupervivientesDao extends DaoBase {
         return listasupervivientes;
     }
 
+    public ArrayList<Superviviente> filtroSexo() {
+
+        ArrayList<Superviviente> listasupervivientes = new ArrayList<>();
+
+
+        try (Connection conn = this.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido, h.peso_cargado\n" +
+                     "from Humanos h\n" +
+                     "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo=?;\n");) {
+            while (rs.next()) {
+                Superviviente superviviente = new Superviviente();
+                superviviente.setId(rs.getString(1));
+                superviviente.setNombre_apellido(rs.getString(2));
+                superviviente.setSexo(rs.getString(3));
+                superviviente.setPeso(rs.getFloat(4));
+                superviviente.setFuerza(rs.getFloat(5));
+                superviviente.setPareja(rs.getString(6));
+                superviviente.setPeso_cargado(rs.getFloat(7));
+
+                listasupervivientes.add(superviviente);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("No se pudo realizar la busqueda");
+        }
+        return listasupervivientes;
+    }
+
     public void actualizarSuperviviente(Superviviente superviviente) {
 
         String sql = "UPDATE humanos SET nombre_apellido = ?, fuerza = ?, peso = ?, idHumano_pareja = ? WHERE (idHumano = ?)";

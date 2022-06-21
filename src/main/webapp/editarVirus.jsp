@@ -56,7 +56,7 @@
                       class="card-header"
                       style="background-color: #e72d4b; color: white"
               >
-                <h4 class="my-2">Registrar Superviviente</h4>
+                <h4 class="my-2">Editar Virus</h4>
               </div>
               <div class="card-body p-4 p-md-5">
                 <form>
@@ -64,87 +64,35 @@
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"
-                        >Nombres del superviviente</label
+                        >Nombre del virus</label
                         >
                         <input
                                 type="text"
                                 id="productName"
                                 class="form-control"
-                                placeholder="Ingrese los nombres"
-                        />
-                      </div>
-                      <div class="form-outline mb-4">
-                        <div class="rows-auto">
-                          <select
-                                  class="form-select form-select-sm"
-                                  name="filtro"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="Selecciona la sede">
-                              Selecciona el género
-                            </option>
-                            <option value="Selecciona la sede">
-                              Masculino
-                            </option>
-                            <option value="Selecciona la sede">
-                              Femenino
-                            </option>
-                            <option value="Selecciona la sede">
-                              Otro
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <label class="form-label" for="productName"
-                        >Fuerza</label
-                        >
-                        <input
-                                type="number"
-                                id="productName"
-                                class="form-control"
-                                placeholder="Ingrese la fuerza"
+                                placeholder="Ingrese los virus"
                         />
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"
-                        >Peso</label
+                        >Variante</label
                         >
                         <input
-                                type="number"
+                                type="text"
                                 id="productName"
                                 class="form-control"
-                                placeholder="Ingrese el peso"
+                                placeholder="Ingrese la variante"
                         />
-                      </div>
-                      <div class="form-outline mb-4">
-                        <div class="rows-auto">
-                          <label class="form-label" for="productName"
-                          >Nombre de la Pareja</label
-                          >
-                          <select
-                                  class="form-select form-select-sm"
-                                  name="filtro"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="Selecciona la sede">
-                              Selecciona la pareja
-                            </option>
-                            <%for(Superviviente listasuper: listasupervivientes){%>
-                            <option value="<%=listasuper.getNombre_apellido()%>"><%=listasuper.getNombre_apellido()%></option>
-                            <%}%>
-                          </select>
-                        </div>
                       </div>
                     </div>
 
                     <div class="col-md-6 mb-4 text-center">
                       <img
-                              src="img/persona.png"
+                              src="img/virus2.jpg"
                               class="img-thumbnail"
                               width="200px"
                               height="200px"
-                              alt="medicamento"
+                              alt=""
                       />
                     </div>
                   </div>
@@ -153,7 +101,7 @@
                     <input
                             class="btn btn-tele"
                             type="submit"
-                            value="Guardar Superviviente"
+                            value="Actualizar Virus"
                     />
                   </div>
                 </form>
