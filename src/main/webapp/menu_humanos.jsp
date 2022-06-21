@@ -1,7 +1,7 @@
 <%@ page import="com.example._20190050_20190459_20190674.Beans.Humano" %>
 <%@ page import="java.util.Objects" %>
-<jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
 
+<jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
