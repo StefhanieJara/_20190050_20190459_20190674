@@ -16,10 +16,15 @@ public class HumanoDao extends DaoBase{
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM ;");) {
+             ResultSet rs = stmt.executeQuery("select idHumano, nombre_apellido, Sexo, r.nombre\n" +
+                     "from humanos h, rol r \n" +
+                     "where h.Rol_idRol=r.idRol;\n");) {
             while (rs.next()) {
                 Humano humano = new Humano();
-
+                humano.setId(rs.getInt(1));
+                humano.setNombre_apellido(rs.getString(2));
+                humano.setSexo(rs.getString(3));
+                humano.setEstado_rol(Integer.parseInt(rs.getString(4)));
                 listaHumano.add(humano);
             }
 
