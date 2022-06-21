@@ -121,18 +121,26 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Tiempo Infectado</th>
-                    <th>Variante de Virus</th>
-                    <th>Número Victimas</th>
-                    <th>Tipo de Zombie</th>
+                    <th>Peso</th>
+                    <th>Fuerza</th>
+                    <th>Nombre comleto de la pareja</th>
+                    <th>Peso cargado</th>
                 </tr>
                 </thead>
+                <%for(Superviviente superviviente:listasupervivientes){%>
                 <tr>
-                    <td>12345</td>
-                    <td>Mario</td>
-                    <td>Montaneda</td>
-                    <td>20152014</td>
+                    <td><%=superviviente.getPeso()%></td>
+                    <td><%=superviviente.getFuerza()%></td>
+                    <td>
+                        <% if(superviviente.getPareja() == null){%>
+                           null
+                        <%}else{%>
+                            <%=superviviente.getPareja()%>
+                        <%}%>
+                    </td>
+                    <td><%=superviviente.getPeso_cargado()%></td>
                 </tr>
+                <%}%>
             </table>
         </div>
     </main>
