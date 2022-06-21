@@ -13,11 +13,11 @@ public class ZombieDao extends DaoBase{
         ArrayList<Zombie> listaZombie = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select idHumano, nombre_apellido, Sexo, tiempo_inf, var.nombre, victimas, z.tipo, h.id_Virus \n" +
-                     "from Humanos h, virus v, variante var, tipo_zombie z \n" +
-                     "where h.id_Virus = v.id_Virus and\n" +
-                     "      v.idVariante = var.idVariante and \n" +
-                     "      h.idTipo_zombie = z.idTipo_Zombie;");){
+             ResultSet rs = stmt.executeQuery("select idHumano, nombre_apellido, Sexo, tiempo_inf, var.nombre, victimas, z.tipo, h.id_Virus\n" +
+                     "                     from Humanos h, virus v, variante var, tipo_zombie z \n" +
+                     "                     where h.id_Virus = v.id_Virus and\n" +
+                     "                           v.id_Virus = var.Virus_id_Virus and \n" +
+                     "                           h.idTipo_zombie = z.idTipo_Zombie;");){
             while (rs.next()){
                 Zombie zombie= new Zombie();
                 zombie.setId(rs.getString(1));
