@@ -58,13 +58,28 @@ public class VirusDao extends DaoBase{
     }
 
 
-    public void crear_variante(String nombre_variante) {
+    public void crear_variante(String nombre_variante, String Id_virus) {
 
-        String sql = "INSERT INTO variante (nombre) VALUES (?)";
+        String sql = "INSERT INTO variante (nombre, Virus_id_Virus) VALUES (? , ?);";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
             pstmt.setString(1, nombre_variante);
+            pstmt.setString(1, Id_virus);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void crear_virus(String nombre_variante, String Id_virus) {
+
+        String sql = "INSERT INTO virus (grado_inf, nombre) VALUES (?, ?);";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+            pstmt.setString(1, nombre_variante);
+            pstmt.setString(1, Id_virus);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -87,13 +102,13 @@ public class VirusDao extends DaoBase{
 
     }
 
-    public void eliminarVirus(String idVariante) {
-        String sql = "DELETE FROM virus WHERE (idVariante = ?)";
+    public void eliminarVirus(String idVirus) {
+        String sql = "DELETE FROM virus WHERE (id_Virus = ?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
 
-            pstmt.setString(1, idVariante);
+            pstmt.setString(1, idVirus);
 
             pstmt.executeUpdate();
 
