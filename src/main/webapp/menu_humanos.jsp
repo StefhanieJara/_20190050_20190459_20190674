@@ -31,7 +31,7 @@
         }
         #main-container {
             margin: 52px;
-            margin-left: -20px;
+            margin-left: -250px;
             width: 1000px;
         }
         table {
@@ -106,119 +106,10 @@
                 </h3>
             </div>
         </div>
-        <div class="caja2"></div>
-        <div class="caja1">
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <h4><center>FILTROS</center></h4>
-                    <label for="inputtext6" class="col-form-label">Nombre</label>
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label">Apellido</label>
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label"> DNI</label>
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label">Codigo Pucp</label>
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label"
-                    >Correo Institucional</label
-                    >
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label">Telefono</label>
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-            </div>
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <label for="inputtext6" class="col-form-label"
-                    >Fecha de Nacimiento</label
-                    >
-                </div>
-                <div class="rows-auto">
-                    <input
-                            type="text"
-                            id="inputtext6"
-                            class="form-control"
-                            aria-describedby="textHelpInline"
-                    />
-                </div>
-                <div class="rows-auto">
-                    <button
-                            type="submit"
-                            class="btn btn-primary"
-                            style="
-                  background-color: indianred;
-                  border-color: red;
-                  color: white;
-                "
-                    >
-                        Aplicar filtros
-                    </button>
-                </div>
-            </div>
-        </div>
-
+        <button type="button" class="btn btn-success">Menu Zoombies</button>
+        <button type="button" class="btn btn-warning">
+            Menu Supervivientes
+        </button>
         <div id="main-container">
             <table>
                 <thead>
@@ -251,3 +142,4 @@
 </div>
 </body>
 </html>
+
