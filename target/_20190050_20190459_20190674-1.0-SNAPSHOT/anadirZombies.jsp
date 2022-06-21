@@ -1,4 +1,10 @@
-<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %><%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 21/06/2022
+  Time: 02:18
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listasupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>"/>
 
@@ -29,8 +35,8 @@
     <img src="img/logo.png" class="logo" alt="Main Logo" />
 
     <ul>
-      <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
-      <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
+      <li><a href="#">Humanos</a></li>
+      <li><a href="#">Supervivientes</a></li>
       <li><a href="#">Virus</a></li>
       <li><a href="#">Zoombies</a></li>
       <li><a href="#">Objetos</a></li>
@@ -50,99 +56,93 @@
                       class="card-header"
                       style="background-color: #e72d4b; color: white"
               >
-                <h4 class="my-2">Registrar Superviviente</h4>
+                <h4 class="my-2">Registrar Zoombie</h4>
               </div>
-
               <div class="card-body p-4 p-md-5">
-                <form method="POST" action="<%=request.getContextPath()%>/MenuAnadirSupervivienteServlet">
+                <form>
                   <div class="row">
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"
-                        >Nombres del superviviente</label
+                        >Nombre del Zombie</label
                         >
                         <input
                                 type="text"
-                                name="nombre"
-                                class="form-control "
-                                placeholder="Ingrese los nombres"
-                        />
-                      </div>
-                      <div class="form-outline mb-4">
-                        <div class="rows-auto">
-                          <select
-                                  class="form-select form-select-sm"
-                                  name="sexo"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="">
-                              Selecciona el género
-                            </option>
-                            <option value="M">
-                              Masculino
-                            </option>
-                            <option value="F">
-                              Femenino
-                            </option>
-                            <option value="O">
-                              Otro
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <label class="form-label" for="productName"
-                        >Fuerza</label
-                        >
-                        <input
-                                type="number"
-                                name="fuerza"
                                 id="productName"
                                 class="form-control"
-                                placeholder="Ingrese la fuerza"
-                        />
-                      </div>
-                      <div class="form-outline mb-4">
-                        <label class="form-label" for="productName1"
-                        >Peso</label
-                        >
-                        <input
-                                type="number"
-                                name="peso"
-                                id="productName1"
-                                class="form-control"
-                                placeholder="Ingrese el peso"
+                                placeholder="Ingrese nombre del zombie"
                         />
                       </div>
                       <div class="form-outline mb-4">
                         <div class="rows-auto">
-                          <label class="form-label"
-                          >Nombre de la Pareja</label
+                          <label class="form-label" for="productName"
+                          >Elija el género</label
                           >
                           <select
                                   class="form-select form-select-sm"
                                   name="filtro"
                                   aria-label=".form-select-sm example"
                           >
-                            <option value="nada">
-                              Selecciona la pareja
+                            <option value="Selecciona la sede">
+                              Selecciona el género
                             </option>
-                            <%for(Superviviente listasuper: listasupervivientes){%>
-                            <option value="<%=listasuper.getId()%>"><%=listasuper.getNombre_apellido()%></option>
-                            <%}%>
+                            <option value="Selecciona la sede">
+                              Masculino
+                            </option>
+                            <option value="Selecciona la sede">
+                              Femenino
+                            </option>
+                            <option value="Selecciona la sede">Otro</option>
                           </select>
-
-                        </div >
+                        </div>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="productName"
+                        >Elija la variante</label
+                        >
+                        <select
+                                class="form-select form-select-sm"
+                                name="filtro"
+                                aria-label=".form-select-sm example"
+                        >
+                          <option value="Selecciona la sede">
+                            Selecciona la variante
+                          </option>
+                          <option value="">uwu</option>
+                          <option value="">UWU</option>
+                          <option value="">Otro</option>
+                        </select>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="productName"
+                        >Tipo de Zombie</label
+                        >
+                        <select
+                                class="form-select form-select-sm"
+                                name="filtro"
+                                aria-label=".form-select-sm example"
+                        >
+                          <option value="Selecciona el tipo de zoombie">
+                            Selecciona el tipo de zombie
+                          </option>
+                          <option value="Selecciona la sede">
+                            Demoledor
+                          </option>
+                          <option value="">Rápido</option>
+                          <option value="">Niño</option>
+                          <option value="">Normal</option>
+                          <option value="">Otro</option>
+                        </select>
                       </div>
                     </div>
 
                     <div class="col-md-6 mb-4 text-center">
                       <img
-                              src="img/persona.png"
+                              src="img/zombies2.jpg"
                               class="img-thumbnail"
                               width="200px"
                               height="200px"
-                              alt="medicamento"
+                              alt=""
                       />
                     </div>
                   </div>
@@ -151,7 +151,7 @@
                     <input
                             class="btn btn-tele"
                             type="submit"
-                            value="Guardar Superviviente"
+                            value="Guardar Zombie"
                     />
                   </div>
                 </form>
@@ -167,4 +167,5 @@
 </div>
 </body>
 </html>
+
 

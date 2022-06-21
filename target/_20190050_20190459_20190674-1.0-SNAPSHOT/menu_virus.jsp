@@ -1,8 +1,11 @@
-<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
-<%@ page import="java.util.Objects" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 20/06/2022
+  Time: 19:48
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="listasupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>" />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +71,7 @@
 </head>
 <body>
 <a
-        href="<%=request.getContextPath()%>/MenuAnadirSupervivienteServlet"
+        href="registrarCelebridad.html"
         class="btn-float"
         style="margin-right: 100px"
 >
@@ -79,8 +82,8 @@
         <img src="img/logo.png" class="logo" alt="Main Logo" />
 
         <ul>
-            <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
-            <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
+            <li><a href="#">Humanos</a></li>
+            <li><a href="#">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
             <li><a href="#">Objetos</a></li>
@@ -98,59 +101,24 @@
         </div>
 
         <!--Barra de búsqueda producto-->
-        <form class="busqueda" method ="POST" action="<%=request.getContextPath()%>/MenuSupervivientesServlet">
-            <div class="row g-3 align-items-center mt-2">
-                <div class="rows-auto">
-                    <select
-
-                            class="form-select form-select-sm"
-                            name="filtro"
-                            aria-label=".form-select-sm example"
-
-                    >
-                        <option value="Selecciona la sede">Selecciona el género</option>
-                        <option value="F">Mujer</option>
-                        <option value="M">Hombre</option>
-                        <option value="O">Otro</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row row-cols-3 justify-content-center">
-                <button class="btn btn-tele" type="submit">Filtrar</button>
-            </div>
-        </form>
-
         <div id="main-container">
             <table>
                 <thead>
                 <tr>
-                    <th>Peso</th>
-                    <th>Fuerza</th>
-                    <th>Nombre comleto de la pareja</th>
-                    <th>Peso cargado</th>
-                    <th>-</th>
+                    <th> Id de virus</th>
+                    <th>Virus</th>
+                    <th>Id Variante</th>
+                    <th>Variante</th>
+                    <th>Casos encontrados</th>
                 </tr>
                 </thead>
-                <%for(Superviviente superviviente:listasupervivientes){%>
                 <tr>
-                    <td><%=superviviente.getPeso()%></td>
-                    <td><%=superviviente.getFuerza()%></td>
-                    <td>
-                        <% if(superviviente.getPareja() == null){%>
-                           No tiene pareja
-                        <%}else{%>
-                            <%=superviviente.getPareja()%>
-                        <%}%>
-                    </td>
-                    <td><%=superviviente.getPeso_cargado()%></td>
-                    <td>
-                        <form method="POST" action="<%=request.getContextPath()%>/BorrarSupervivienteServlet">
-                             <div style="display: none" name="id"><%=superviviente.getId()%></div>
-                             <button type ="submit"class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
+                    <td>12345</td>
+                    <td>Mario</td>
+                    <td>Montaneda</td>
+                    <td>20152014</td>
+                    <td>20152014</td>
                 </tr>
-                <%}%>
             </table>
         </div>
     </main>

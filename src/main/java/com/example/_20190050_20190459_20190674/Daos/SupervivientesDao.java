@@ -59,35 +59,6 @@ public class SupervivientesDao extends DaoBase {
         return listasupervivientes;
     }
 
-    public ArrayList<Superviviente> filtroSexo() {
-
-        ArrayList<Superviviente> listasupervivientes = new ArrayList<>();
-
-
-        try (Connection conn = this.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido, h.peso_cargado\n" +
-                     "from Humanos h\n" +
-                     "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo=?;\n");) {
-            while (rs.next()) {
-                Superviviente superviviente = new Superviviente();
-                superviviente.setId(rs.getString(1));
-                superviviente.setNombre_apellido(rs.getString(2));
-                superviviente.setSexo(rs.getString(3));
-                superviviente.setPeso(rs.getFloat(4));
-                superviviente.setFuerza(rs.getFloat(5));
-                superviviente.setPareja(rs.getString(6));
-                superviviente.setPeso_cargado(rs.getFloat(7));
-
-                listasupervivientes.add(superviviente);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("No se pudo realizar la busqueda");
-        }
-        return listasupervivientes;
-    }
-
     public void actualizarSuperviviente(Superviviente superviviente) {
 
         String sql = "UPDATE humanos SET nombre_apellido = ?, fuerza = ?, peso = ?, idHumano_pareja = ? WHERE (idHumano = ?)";
@@ -105,12 +76,18 @@ public class SupervivientesDao extends DaoBase {
         }
     }
 
-    public void crearSupervivencia(String id,String nombre_apellido,String sexo,float fuerza, float peso) {
+    public void crearSupervivencia(String nombre_apellido,String sexo,float fuerza, float peso,String idPareja) {
 
-        String sql = "INSERT INTO humanos (idHumano, nombre_apellido, Sexo, Rol_idRol, fuerza, peso) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO humanos (idHumano, nombre_apellido, Sexo, Rol_idRol, fuerza, peso,idHumano_pareja) VALUES (?, ?, ?, ?, ?, ?,?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+                String id="";
+                String[] nums = {"0","1","2","3","4","5","6","7","8","9"};
+                for (int i = 0; i < 11; i++ ) {
+                    id += nums[(int) Math.round(Math.random() * 9)];
+                }
 
             pstmt.setString(1, id);
             pstmt.setString(2, nombre_apellido);
@@ -118,6 +95,7 @@ public class SupervivientesDao extends DaoBase {
             pstmt.setInt(4, 1);
             pstmt.setFloat(5,fuerza);
             pstmt.setFloat(6, peso);
+            pstmt.setString(7,idPareja);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -158,6 +136,4 @@ public class SupervivientesDao extends DaoBase {
         }
 
     }
-
-
 }
