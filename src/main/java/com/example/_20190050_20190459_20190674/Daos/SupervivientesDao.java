@@ -9,16 +9,37 @@ import java.util.ArrayList;
 
 public class SupervivientesDao extends DaoBase {
 
-    public ArrayList<Superviviente> obtenerLista() {
+    public ArrayList<Superviviente> obtenerLista(String parametro) {
 
         ArrayList<Superviviente> listasupervivientes = new ArrayList<>();
 
-
+        String sql = null;
+        if(parametro==null){
+            sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
+                    "from Humanos h\n" +
+                    "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1';\n";
+        }else {
+            if(parametro.equals("M")){
+                sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
+                        "from Humanos h\n" +
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='M'\n;";
+            }else if(parametro.equals("F")){
+                sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
+                        "from Humanos h\n" +
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='F'\n;";
+            }else if(parametro.equals("O")){
+                sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
+                        "from Humanos h\n" +
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='O'\n;";
+            }else{
+                sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
+                        "from Humanos h\n" +
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1';\n";
+            }
+        }
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
-                     "from Humanos h\n" +
-                     "inner join Humanos hum on h.idHumano_pareja = hum.idHumano;");) {
+             ResultSet rs = stmt.executeQuery(sql);) {
             while (rs.next()) {
                 Superviviente superviviente = new Superviviente();
                 superviviente.setId(rs.getString(1));
@@ -27,9 +48,10 @@ public class SupervivientesDao extends DaoBase {
                 superviviente.setPeso(rs.getFloat(4));
                 superviviente.setFuerza(rs.getFloat(5));
                 superviviente.setPareja(rs.getString(6));
-
+                
                 listasupervivientes.add(superviviente);
             }
+
 
         } catch (SQLException e) {
             System.out.println("No se pudo realizar la busqueda");

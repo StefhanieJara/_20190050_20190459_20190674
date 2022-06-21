@@ -68,7 +68,7 @@
 </head>
 <body>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/MenuAnadirSuperviviente"
         class="btn-float"
         style="margin-right: 100px"
 >
@@ -98,22 +98,25 @@
         </div>
 
         <!--Barra de búsqueda producto-->
-        <form class="busqueda">
+        <form class="busqueda" method ="POST" action="<%=request.getContextPath()%>/MenuSupervivientesServlet">
             <div class="row g-3 align-items-center mt-2">
                 <div class="rows-auto">
                     <select
+
                             class="form-select form-select-sm"
                             name="filtro"
                             aria-label=".form-select-sm example"
+
                     >
                         <option value="Selecciona la sede">Selecciona el género</option>
-                        <option value="Selecciona la sede">Mujer</option>
-                        <option value="Selecciona la sede">Varón</option>
+                        <option value="F">Mujer</option>
+                        <option value="M">Hombre</option>
+                        <option value="O">Otro</option>
                     </select>
                 </div>
             </div>
             <div class="row row-cols-3 justify-content-center">
-                <input class="btn btn-tele" type="submit" value="Filtrar" />
+                <button class="btn btn-tele" type="submit">Filtrar</button>
             </div>
         </form>
 
@@ -133,7 +136,7 @@
                     <td><%=superviviente.getFuerza()%></td>
                     <td>
                         <% if(superviviente.getPareja() == null){%>
-                           null
+                           No tiene pareja
                         <%}else{%>
                             <%=superviviente.getPareja()%>
                         <%}%>
