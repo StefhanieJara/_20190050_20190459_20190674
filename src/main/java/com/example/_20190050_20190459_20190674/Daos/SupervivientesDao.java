@@ -54,7 +54,7 @@ public class SupervivientesDao extends DaoBase {
         }
     }
 
-    public void crearSupervivencia(String id,String nombre_apellido,String sexo,int id_rol,float fuerza, float peso) {
+    public void crearSupervivencia(String id,String nombre_apellido,String sexo,float fuerza, float peso) {
 
         String sql = "INSERT INTO humanos (idHumano, nombre_apellido, Sexo, Rol_idRol, fuerza, peso) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -64,7 +64,7 @@ public class SupervivientesDao extends DaoBase {
             pstmt.setString(1, id);
             pstmt.setString(2, nombre_apellido);
             pstmt.setString(3, sexo);
-            pstmt.setInt(4, id_rol);
+            pstmt.setInt(4, 1);
             pstmt.setFloat(5,fuerza);
             pstmt.setFloat(6, peso);
             pstmt.executeUpdate();
@@ -72,6 +72,40 @@ public class SupervivientesDao extends DaoBase {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void eliminarSuperviviente(String id) {
+
+        String sql = "DELETE FROM humanos WHERE (idHumano = ?)";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, id);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void eliminarPareja(String id) {
+
+
+        String sql = "UUPDATE humanos SET idHumano_pareja = '' WHERE (idHumano = ?)";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, id);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
