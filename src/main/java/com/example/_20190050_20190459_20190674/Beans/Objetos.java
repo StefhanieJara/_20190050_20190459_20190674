@@ -9,7 +9,6 @@ public class Objetos {
     private int id_vacuna;
     private float efectividad_vacunal;
 
-
     public int getId_objeto() {
         return id_objeto;
     }

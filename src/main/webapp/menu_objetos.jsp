@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: stefh
-  Date: 20/06/2022
-  Time: 19:48
+  Date: 21/06/2022
+  Time: 14:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -77,6 +77,14 @@
 >
     <i class="fas fa-plus my-float"></i>
 </a>
+<a
+        href="registrarCelebridad.html"
+        class="btn-float2"
+        style="margin-right: 10px"
+>
+    <i class="fas fa-plus my-float"></i>
+</a>
+
 <div class="container">
     <div class="navbar">
         <img src="img/logo.png" class="logo" alt="Main Logo" />
@@ -94,33 +102,38 @@
         <div class="card-header my-2"></div>
         <div class="row">
             <div class="moverTitulo">
-                <h3 class="text-white">
-                    Bienvenido al menú de supervivientes
-                </h3>
+                <h3 class="text-white">Bienvenido al menú de objetos</h3>
             </div>
+            <h4 class="text" style="color: #f57f00">
+                El boton anaranjado es para agregar objetos y el boton rojo para
+                vacunas
+            </h4>
         </div>
 
-        <!--Barra de búsqueda producto-->
         <div id="main-container">
             <table>
                 <thead>
                 <tr>
-                    <th> Id de virus</th>
-                    <th>Virus</th>
-                    <th>Id Variante</th>
-                    <th>Variante</th>
-                    <th>Casos encontrados</th>
-                    <th>Editar</th>
+                    <th>Nombre del Objeto</th>
+                    <th>Peso</th>
+                    <th>Tipo</th>
+                    <th>Efectividad</th>
+                    <th>Editar objeto</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tr>
-                    <td>12345</td>
-                    <td>Mario</td>
-                    <td>Montaneda</td>
-                    <td>20152014</td>
-                    <td>20152014</td>
+                    <td>Vacuna</td>
+                    <td>0.5</td>
+                    <td>Vacuna</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Ver</button>
+                    </td>
                     <td>
                         <button type="button" class="btn btn-dark">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Eliminar</button>
                     </td>
                 </tr>
             </table>

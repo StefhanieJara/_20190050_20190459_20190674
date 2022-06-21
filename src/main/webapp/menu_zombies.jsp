@@ -107,6 +107,7 @@
                     <th>Variante de Virus</th>
                     <th>Número de Victimas</th>
                     <th>Tipo de zombies</th>
+                    <th>Edicion</th>
                 </tr>
                 </thead>
                 <tr>
@@ -114,6 +115,9 @@
                     <td>Mario</td>
                     <td>Montaneda</td>
                     <td>20152014</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Editar</button>
+                    </td>
                 </tr>
             </table>
         </div>
