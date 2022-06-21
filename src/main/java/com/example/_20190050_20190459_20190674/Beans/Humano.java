@@ -2,16 +2,16 @@ package com.example._20190050_20190459_20190674.Beans;
 
 
 public class Humano {
-    private int Id;
+    private String Id;
     private String nombre_apellido;
     private String sexo;
     private String estado_rol;
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
 

@@ -1,5 +1,4 @@
 <%@ page import="com.example._20190050_20190459_20190674.Beans.Humano" %>
-<%@ page import="com.example._20190050_20190459_20190674.Servlet.MenuHumanosServlet" %>
 <%@ page import="java.util.Objects" %>
 <jsp:useBean id="listaHumano" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Humano>" />
 
@@ -124,7 +123,7 @@
                     <td><%=humano.getId()%></td>
                     <td><%=humano.getNombre_apellido()%></td>
                     <td><%=humano.getSexo()%></td>
-                    <td><%=humano.getEstado_rol()%>></td>
+                    <td><%=humano.getEstado_rol()%></td>
 
                 </tr>
                 <%}%>
