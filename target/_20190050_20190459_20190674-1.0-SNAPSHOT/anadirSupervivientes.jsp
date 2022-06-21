@@ -84,10 +84,13 @@
                               Selecciona el género
                             </option>
                             <option value="Selecciona la sede">
-                              Mujer
+                              Masculino
                             </option>
                             <option value="Selecciona la sede">
-                              Varón
+                              Femenino
+                            </option>
+                            <option value="Selecciona la sede">
+                              Otro
                             </option>
                           </select>
                         </div>

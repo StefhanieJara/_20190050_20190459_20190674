@@ -12,7 +12,7 @@ public class VirusDao extends DaoBase{
         ArrayList<Virus> listaVirus = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select v.id_virus, v.nombre, v.idVariante, var.nombre, count(h.id_Virus) as 'Casos encontrados' \n" +
+             ResultSet rs = stmt.executeQuery("select v.id_virus, v.nombre, var.idVariante, var.nombre, count(h.id_Virus) as 'Casos encontrados' \n" +
                      "from virus v\n" +
                      "left join variante var on v.id_Virus = var.idVariante\n" +
                      "left join humanos h on v.id_Virus=h.id_Virus\n" +

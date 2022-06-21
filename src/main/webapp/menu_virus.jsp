@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Virus" %><%--
   Created by IntelliJ IDEA.
   User: stefh
   Date: 20/06/2022
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaVirus" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,6 +79,13 @@
 >
     <i class="fas fa-plus my-float"></i>
 </a>
+<a
+        href="registrarCelebridad.html"
+        class="btn-float2"
+        style="margin-right: 10px"
+>
+    <i class="fas fa-plus my-float"></i>
+</a>
 <div class="container">
     <div class="navbar">
         <img src="img/logo.png" class="logo" alt="Main Logo" />
@@ -95,9 +104,13 @@
         <div class="row">
             <div class="moverTitulo">
                 <h3 class="text-white">
-                    Bienvenido al menú de supervivientes
+                    Bienvenido al menú de Virus
                 </h3>
             </div>
+            <h4 class="text" style="color: #f57f00">
+                El boton anaranjado es para agregar variante seleccionando un virus y el boton rojo para
+                agregar una variante que tenga un nuevo virus.
+            </h4>
         </div>
 
         <!--Barra de búsqueda producto-->
@@ -114,14 +127,19 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td>12345</td>
-                    <td>Mario</td>
-                    <td>Montaneda</td>
-                    <td>20152014</td>
-                    <td>20152014</td>
-                    <td>
-                        <button type="button" class="btn btn-dark">Editar</button>
-                    </td>
+                        <%for (Virus viruslista:listaVirus){%>
+                <tr>
+                    <td><%=viruslista.getIdVirus()%></td>
+                    <td><%=viruslista.getNombre_virus()%></td>
+                    <td><%=viruslista.getIdVariante()%></td>
+                    <td><%=viruslista.getNombre_variante()%></td>
+                    <td><%=viruslista.getCasos_encontrados()%></td>
+                <td>
+                    <button type="button" class="btn btn-dark">Editar</button>
+                </td>
+
+                </tr>
+                <%}%>
                 </tr>
             </table>
         </div>
