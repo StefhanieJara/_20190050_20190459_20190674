@@ -12,15 +12,12 @@ public class VirusDao extends DaoBase{
         ArrayList<Virus> listaVirus = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select v.id_virus, v.nombre, var.idVariante, var.nombre, count(h.id_Virus) as 'Casos encontrados' \n" +
-                     "from virus v\n" +
-                     "left join variante var on v.id_Virus = var.idVariante\n" +
-                     "left join humanos h on v.id_Virus=h.id_Virus\n" +
-                     "group by v.id_Virus\n" +
-                     "order by v.id_Virus asc;");){
+             ResultSet rs = stmt.executeQuery("select v.id_virus, v.nombre, var.idVariante, var.nombre, count(h.variante_idVariante) as 'Casos encontrados'\n" +
+                     "from virus v left join variante var on v.id_Virus = var.Virus_id_Virus left join humanos h on var.idVariante=h.variante_idVariante\n" +
+                     "group by var.idVariante order by var.idVariante asc;");){
             while (rs.next()){
                 Virus virus= new Virus();
-                virus.setIdVirus(rs.getString(1));
+                virus.setIdVirus(rs.getInt(1));
                 virus.setNombre_virus(rs.getString(2));
                 virus.setIdVariante(rs.getString(3));
                 virus.setNombre_variante(rs.getString(4));
@@ -34,6 +31,26 @@ public class VirusDao extends DaoBase{
 
         return listaVirus;
     }
+
+    public ArrayList<Virus> obtenerVirus_sinRepetir(){
+
+        ArrayList<Virus> listaVirusRepetir = new ArrayList<>();
+        try (Connection conn = this.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("select nombre from virus;");){
+            while (rs.next()){
+                Virus virus= new Virus();
+                virus.setNombre_virus(rs.getString(1));
+                listaVirusRepetir.add(virus);
+            }
+
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaVirusRepetir;
+    }
+
 
     public Virus casos_totales() {
         Virus virus = null;
@@ -58,28 +75,51 @@ public class VirusDao extends DaoBase{
     }
 
 
-    public void crear_variante(String nombre_variante, String Id_virus) {
+    public void crear_variante(String nombre_variante, int Id_virus) {
 
         String sql = "INSERT INTO variante (nombre, Virus_id_Virus) VALUES (? , ?);";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
             pstmt.setString(1, nombre_variante);
-            pstmt.setString(1, Id_virus);
+            pstmt.setInt(2, Id_virus);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void crear_virus(String nombre_variante, String Id_virus) {
+    public int encontrarIDVirus(String nombre){
+        int id=0;
+        try (Connection conn = this.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("select * from virus where nombre like ?")){
+            stmt.setString(1, "%"+nombre+"%");
+            try(ResultSet rs = stmt.executeQuery()){
+                while (rs.next()) {
+                    id=rs.getInt(1);
+                }
+            }
 
-        String sql = "INSERT INTO virus (grado_inf, nombre) VALUES (?, ?);";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return id;
+    }
+
+
+
+
+
+
+
+    public void crear_virus(String nombre_variante) {
+
+        String sql = "INSERT INTO virus (nombre) VALUES (?);";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
             pstmt.setString(1, nombre_variante);
-            pstmt.setString(1, Id_virus);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -11,10 +11,33 @@ import java.io.IOException;
 public class MenuVirusServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action") == null ? "listar" : request.getParameter("action");
         VirusDao virusDao = new VirusDao();
-        request.setAttribute("listaVirus",virusDao.obtenerVirus());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("menu_virus.jsp");
-        requestDispatcher.forward(request,response);
+
+        switch (action){
+            case "listar" ->{
+                request.setAttribute("listaVirus",virusDao.obtenerVirus());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("menu_virus.jsp");
+                requestDispatcher.forward(request,response);
+            }
+            case "crear" ->{
+                request.setAttribute("listaVirus",virusDao.obtenerVirus_sinRepetir());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("anadirVirus.jsp");
+                requestDispatcher.forward(request,response);
+
+            }
+            case "crear2" ->{
+                request.setAttribute("listaVirus",virusDao.obtenerVirus_sinRepetir());
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("anadirVirus2.jsp");
+                requestDispatcher.forward(request,response);
+
+            }
+
+        }
+
+
+
+
 
 
 
@@ -22,6 +45,29 @@ public class MenuVirusServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action") == null ? "listar" : request.getParameter("action");
+        VirusDao virusDao = new VirusDao();
+
+        switch (action){
+            case "guardar" ->{
+                String virusStr = request.getParameter("virus");
+                String nombre_Variante = request.getParameter("nombre_Variante");
+                int virus = virusDao.encontrarIDVirus(virusStr);
+                virusDao.crear_variante(nombre_Variante,virus);
+                response.sendRedirect(request.getContextPath()+"/MenuVirusServlet");
+
+
+            }
+            case "guardar2" ->{
+                String nombre_Variante = request.getParameter("virus_name");
+                virusDao.crear_virus(nombre_Variante);
+                response.sendRedirect(request.getContextPath()+"/MenuVirusServlet");
+
+
+            }
+        }
+
+
 
     }
 }

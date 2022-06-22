@@ -1,4 +1,5 @@
-<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %><%--
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Virus" %><%--
   Created by IntelliJ IDEA.
   User: stefh
   Date: 21/06/2022
@@ -6,6 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
+=======
+<jsp:useBean id="listaVirus" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>"/>
+
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,10 +61,10 @@
                       class="card-header"
                       style="background-color: #e72d4b; color: white"
               >
-                <h4 class="my-2">Registrar Virus</h4>
+                <h4 class="my-2">Registrar Variante</h4>
               </div>
               <div class="card-body p-4 p-md-5">
-                <form>
+                <form method="POST" action="<%=request.getContextPath()%>/MenuVirusServlet?action=guardar">
                   <div class="row">
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
@@ -68,6 +74,7 @@
                           >
                           <select
                                   class="form-select form-select-sm"
+<<<<<<< HEAD
                                   name="filtro"
                                   aria-label=".form-select-sm example"
                           >
@@ -79,6 +86,15 @@
                             </option>
                             <option value="Selecciona la sede">
                               Influencia
+=======
+                                  name="virus"
+                                  aria-label=".form-select-sm example"
+                          >
+                            <option value="Selecciona" selected>Selecciona</option>
+                            <%for(Virus viruslista : listaVirus){%>
+                            <option value="<%=viruslista.getNombre_virus()%>"><%=viruslista.getNombre_virus()%></option>
+                            <%}%>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                             </option>
                             <option value="Selecciona la sede">Otro</option>
                           </select>
@@ -91,6 +107,7 @@
                         <input
                                 type="text"
                                 id="productName"
+                                name="nombre_Variante"
                                 class="form-control"
                                 placeholder="Ingrese la variante"
                         />

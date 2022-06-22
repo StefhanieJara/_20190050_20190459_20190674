@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 <%@ page import="java.util.Objects" %>
 <%@ page import="com.example._20190050_20190459_20190674.Beans.Objetos" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Objetos>" />
 
+=======
+<%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 21/06/2022
+  Time: 14:14
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,11 +98,19 @@
         <img src="img/logo.png" class="logo" alt="Main Logo" />
 
         <ul>
+<<<<<<< HEAD
             <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
             <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
             <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
+=======
+            <li><a href="#">Humanos</a></li>
+            <li><a href="#">Supervivientes</a></li>
+            <li><a href="#">Virus</a></li>
+            <li><a href="#">Zoombies</a></li>
+            <li><a href="#">Objetos</a></li>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
             <li><a href="#">Cacería</a></li>
         </ul>
     </div>
@@ -116,6 +135,7 @@
                     <th>Tipo</th>
                     <th>Efectividad</th>
                     <th>Editar objeto</th>
+<<<<<<< HEAD
                 </tr>
                 </thead>
                 <%for(Objetos objeto :listaObjetos){%>
@@ -130,13 +150,31 @@
                         <a type="button" class="btn btn-dark" href="<%=request.getContextPath()%>/VerEfectividadServlet?idVacuna=<%=objeto.getId_vacuna()%>">Ver</a>
                         <%}%>
 
+=======
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>Vacuna</td>
+                    <td>0.5</td>
+                    <td>Vacuna</td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Ver</button>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                     </td>
                     <td>
                         <button type="button" class="btn btn-dark">Editar</button>
                     </td>
+<<<<<<< HEAD
 
                 </tr>
                 <%}%>
+=======
+                    <td>
+                        <button type="button" class="btn btn-dark">Eliminar</button>
+                    </td>
+                </tr>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
             </table>
         </div>
     </main>

@@ -73,14 +73,14 @@
 </head>
 <body>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/MenuVirusServlet?action=crear"
         class="btn-float"
         style="margin-right: 100px"
 >
     <i class="fas fa-plus my-float"></i>
 </a>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/MenuVirusServlet?action=crear2"
         class="btn-float2"
         style="margin-right: 10px"
 >
@@ -109,7 +109,7 @@
             </div>
             <h4 class="text" style="color: #f57f00">
                 El boton anaranjado es para agregar variante seleccionando un virus y el boton rojo para
-                agregar una variante que tenga un nuevo virus.
+                agregar un nuevo virus.
             </h4>
         </div>
 
@@ -122,8 +122,8 @@
                     <th>Virus</th>
                     <th>Id Variante</th>
                     <th>Variante</th>
-                    <th>Casos encontrados</th>
-                    <th>Editar</th>
+                    <th>Casos encontrados por variante</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tr>
@@ -135,7 +135,7 @@
                     <td><%=viruslista.getNombre_variante()%></td>
                     <td><%=viruslista.getCasos_encontrados()%></td>
                 <td>
-                    <button type="button" class="btn btn-dark">Editar</button>
+                    <button type="button" class="btn btn-dark">Eliminar</button>
                 </td>
 
                 </tr>

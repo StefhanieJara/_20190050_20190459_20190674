@@ -58,7 +58,11 @@
                 <h4 class="my-2">Registrar Virus</h4>
               </div>
               <div class="card-body p-4 p-md-5">
+<<<<<<< HEAD
                 <form>
+=======
+                <form method="POST" action="<%=request.getContextPath()%>/MenuVirusServlet?action=guardar2">
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                   <div class="row">
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
@@ -68,10 +72,15 @@
                         <input
                                 type="text"
                                 id="productName"
+<<<<<<< HEAD
+=======
+                                name="virus_name"
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                 class="form-control"
                                 placeholder="Ingrese el virus"
                         />
                       </div>
+<<<<<<< HEAD
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"
                         >Variante</label
@@ -83,6 +92,8 @@
                                 placeholder="Ingrese la variante"
                         />
                       </div>
+=======
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                     </div>
 
                     <div class="col-md-6 mb-4 text-center">

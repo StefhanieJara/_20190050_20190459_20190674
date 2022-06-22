@@ -16,7 +16,6 @@ public class MenuZombiesServlet extends HttpServlet {
         request.setAttribute("listaZombies",zombieDao.obtenerZombies());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("menu_zombies.jsp");
         requestDispatcher.forward(request,response);
-
     }
 
     @Override

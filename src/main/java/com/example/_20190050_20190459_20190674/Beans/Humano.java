@@ -6,6 +6,15 @@ public class Humano {
     private String nombre_apellido;
     private String sexo;
     private String estado_rol;
+    private int estado;
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
 
     public String getId() {
         return Id;

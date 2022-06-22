@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 <%@ page import="java.util.Objects" %>
 <%@ page import="com.example._20190050_20190459_20190674.Beans.Objetos" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Objetos>" />
 
+=======
+<%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 21/06/2022
+  Time: 12:23
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,9 +81,23 @@
                                                         <label class="form-label" for="productName"
                                                         >Porcentaje</label
                                                         >
+<<<<<<< HEAD
                                                         <div >
                                                             <%=listaObjetos.get(0).getEfectividad_vacunal()%>
                                                      
+=======
+                                                        <div class="progress">
+                                                            <div
+                                                                    class="progress-bar bg-danger"
+                                                                    role="progressbar"
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
+                                                                    aria-valuemin="0"
+                                                                    aria-valuemax="100"
+                                                            >
+                                                                25%
+                                                            </div>
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,8 +119,13 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: <%=listaObjetos.get(1).getEfectividad_vacunal()%>"
                                                                     aria-valuenow="<%=listaObjetos.get(1).getEfectividad_vacunal()%>"
+=======
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -122,8 +152,13 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: <%=listaObjetos.get(2).getEfectividad_vacunal()%>"
                                                                     aria-valuenow="<%=listaObjetos.get(2).getEfectividad_vacunal()%>"
+=======
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -150,8 +185,13 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: <%=listaObjetos.get(3).getEfectividad_vacunal()%>"
                                                                     aria-valuenow="<%=listaObjetos.get(3).getEfectividad_vacunal()%>"
+=======
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -178,8 +218,13 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: <%=listaObjetos.get(4).getEfectividad_vacunal()%>"
                                                                     aria-valuenow="<%=listaObjetos.get(4).getEfectividad_vacunal()%>"
+=======
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
+>>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
