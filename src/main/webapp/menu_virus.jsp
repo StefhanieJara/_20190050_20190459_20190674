@@ -91,12 +91,12 @@
         <img src="img/logo.png" class="logo" alt="Main Logo" />
 
         <ul>
-            <li><a href="#">Humanos</a></li>
-            <li><a href="#">Supervivientes</a></li>
-            <li><a href="#">Virus</a></li>
-            <li><a href="#">Zoombies</a></li>
-            <li><a href="#">Objetos</a></li>
-            <li><a href="#">Cacería</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuVirusServlet">Virus</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuZombiesServlet">Zoombies</a></li>
+            <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuCaceriaServlet">Cacería</a></li>
         </ul>
     </div>
     <main>
@@ -135,7 +135,8 @@
                     <td><%=viruslista.getNombre_variante()%></td>
                     <td><%=viruslista.getCasos_encontrados()%></td>
                 <td>
-                    <button type="button" class="btn btn-dark">Eliminar</button>
+                    <a href="<%=request.getContextPath()%>/MenuVirusServlet?a=borrar&id=<%=viruslista.getNombre_variante()%>"
+                       class="btn btn-danger">Borrar</a>
                 </td>
 
                 </tr>

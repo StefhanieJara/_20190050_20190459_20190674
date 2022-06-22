@@ -7,11 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
-=======
-<jsp:useBean id="listaVirus" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>"/>
+<jsp:useBean id="listaVirus2" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>"/>
 
->>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,19 +71,6 @@
                           >
                           <select
                                   class="form-select form-select-sm"
-<<<<<<< HEAD
-                                  name="filtro"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="Selecciona la sede">
-                              Selecciona el virus
-                            </option>
-                            <option value="Selecciona la sede">
-                              Omicron
-                            </option>
-                            <option value="Selecciona la sede">
-                              Influencia
-=======
                                   name="virus"
                                   aria-label=".form-select-sm example"
                           >
@@ -94,7 +78,6 @@
                             <%for(Virus viruslista : listaVirus){%>
                             <option value="<%=viruslista.getNombre_virus()%>"><%=viruslista.getNombre_virus()%></option>
                             <%}%>
->>>>>>> 02766f057f3523cd7b07b09fc4cb708a73f427d5
                             </option>
                             <option value="Selecciona la sede">Otro</option>
                           </select>
@@ -116,7 +99,7 @@
 
                     <div class="col-md-6 mb-4 text-center">
                       <img
-                              src="img/virus2.jpg"
+                              src="img/zombies2.jpg"
                               class="img-thumbnail"
                               width="200px"
                               height="200px"

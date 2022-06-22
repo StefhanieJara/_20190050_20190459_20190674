@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="listaVirus" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>"/>
+<jsp:useBean id="listaVirus2" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Virus>"/>
 
 
 <!DOCTYPE html>
@@ -37,12 +37,12 @@
     <img src="img/logo.png" class="logo" alt="Main Logo" />
 
     <ul>
-      <li><a href="#">Humanos</a></li>
-      <li><a href="#">Supervivientes</a></li>
-      <li><a href="#">Virus</a></li>
-      <li><a href="#">Zoombies</a></li>
-      <li><a href="#">Objetos</a></li>
-      <li><a href="#">Cacería</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuVirusServlet">Virus</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuZombiesServlet">Zoombies</a></li>
+      <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuCaceriaServlet">Cacería</a></li>
     </ul>
   </div>
   <main>
@@ -99,7 +99,7 @@
 
                     <div class="col-md-6 mb-4 text-center">
                       <img
-                              src="img/virus2.jpg"
+                              src="img/zombies2.jpg"
                               class="img-thumbnail"
                               width="200px"
                               height="200px"
