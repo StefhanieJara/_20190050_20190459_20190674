@@ -68,7 +68,7 @@
 </head>
 <body>
 <a
-        href="<%=request.getContextPath()%>/MenuAnadirSuperviviente"
+        href="<%=request.getContextPath()%>/MenuAnadirSupervivienteServlet"
         class="btn-float"
         style="margin-right: 100px"
 >
@@ -79,8 +79,8 @@
         <img src="img/logo.png" class="logo" alt="Main Logo" />
 
         <ul>
-            <li><a href="#">Humanos</a></li>
-            <li><a href="#">Supervivientes</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
             <li><a href="#">Objetos</a></li>
@@ -128,6 +128,7 @@
                     <th>Fuerza</th>
                     <th>Nombre comleto de la pareja</th>
                     <th>Peso cargado</th>
+                    <th>-</th>
                 </tr>
                 </thead>
                 <%for(Superviviente superviviente:listasupervivientes){%>
@@ -142,6 +143,12 @@
                         <%}%>
                     </td>
                     <td><%=superviviente.getPeso_cargado()%></td>
+                    <td>
+                        <form method="POST" action="<%=request.getContextPath()%>/BorrarSupervivienteServlet">
+                             <div style="display: none" name="id"><%=superviviente.getId()%></div>
+                             <button type ="submit"class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
                 <%}%>
             </table>

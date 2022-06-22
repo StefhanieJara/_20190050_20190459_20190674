@@ -86,8 +86,8 @@
         <img src="img/logo.png" class="logo" alt="Main Logo" />
 
         <ul>
-            <li><a href="#">Humanos</a></li>
-            <li><a href="#">Supervivientes</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
             <li><a href="#">Objetos</a></li>

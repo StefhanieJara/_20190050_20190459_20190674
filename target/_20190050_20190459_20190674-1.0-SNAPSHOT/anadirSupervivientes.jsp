@@ -1,10 +1,4 @@
-<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %><%--
-  Created by IntelliJ IDEA.
-  User: stefh
-  Date: 21/06/2022
-  Time: 02:18
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listasupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>"/>
 
@@ -35,8 +29,8 @@
     <img src="img/logo.png" class="logo" alt="Main Logo" />
 
     <ul>
-      <li><a href="#">Humanos</a></li>
-      <li><a href="#">Supervivientes</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+      <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
       <li><a href="#">Virus</a></li>
       <li><a href="#">Zoombies</a></li>
       <li><a href="#">Objetos</a></li>
@@ -58,8 +52,9 @@
               >
                 <h4 class="my-2">Registrar Superviviente</h4>
               </div>
+
               <div class="card-body p-4 p-md-5">
-                <form>
+                <form method="POST" action="<%=request.getContextPath()%>/MenuAnadirSupervivienteServlet">
                   <div class="row">
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
@@ -68,8 +63,8 @@
                         >
                         <input
                                 type="text"
-                                id="productName"
-                                class="form-control"
+                                name="nombre"
+                                class="form-control "
                                 placeholder="Ingrese los nombres"
                         />
                       </div>
@@ -77,12 +72,21 @@
                         <div class="rows-auto">
                           <select
                                   class="form-select form-select-sm"
-                                  name="filtro"
+                                  name="sexo"
                                   aria-label=".form-select-sm example"
                           >
-                            <option value="Selecciona la sede">
+                            <option value="">
                               Selecciona el género
                             </option>
+<<<<<<< HEAD
+                            <option value="M">
+                              Masculino
+                            </option>
+                            <option value="F">
+                              Femenino
+                            </option>
+                            <option value="O">
+=======
                             <option value="Selecciona la sede">
                               Masculino
                             </option>
@@ -90,6 +94,7 @@
                               Femenino
                             </option>
                             <option value="Selecciona la sede">
+>>>>>>> c281553a8c5707c5625ca4e1e862c527cf239b40
                               Otro
                             </option>
                           </select>
@@ -101,25 +106,27 @@
                         >
                         <input
                                 type="number"
+                                name="fuerza"
                                 id="productName"
                                 class="form-control"
                                 placeholder="Ingrese la fuerza"
                         />
                       </div>
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="productName"
+                        <label class="form-label" for="productName1"
                         >Peso</label
                         >
                         <input
                                 type="number"
-                                id="productName"
+                                name="peso"
+                                id="productName1"
                                 class="form-control"
                                 placeholder="Ingrese el peso"
                         />
                       </div>
                       <div class="form-outline mb-4">
                         <div class="rows-auto">
-                          <label class="form-label" for="productName"
+                          <label class="form-label"
                           >Nombre de la Pareja</label
                           >
                           <select
@@ -127,14 +134,15 @@
                                   name="filtro"
                                   aria-label=".form-select-sm example"
                           >
-                            <option value="Selecciona la sede">
+                            <option value="nada">
                               Selecciona la pareja
                             </option>
                             <%for(Superviviente listasuper: listasupervivientes){%>
-                            <option value="<%=listasuper.getNombre_apellido()%>"><%=listasuper.getNombre_apellido()%></option>
+                            <option value="<%=listasuper.getId()%>"><%=listasuper.getNombre_apellido()%></option>
                             <%}%>
                           </select>
-                        </div>
+
+                        </div >
                       </div>
                     </div>
 
