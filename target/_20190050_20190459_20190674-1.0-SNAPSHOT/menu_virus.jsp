@@ -124,7 +124,6 @@
                     <th>Variante</th>
                     <th>Casos encontrados por variante</th>
                     <th></th>
-                    <th></th>
                 </tr>
                 </thead>
                 <tr>
@@ -135,9 +134,6 @@
                     <td><%=viruslista.getIdVariante()%></td>
                     <td><%=viruslista.getNombre_variante()%></td>
                     <td><%=viruslista.getCasos_encontrados()%></td>
-                <td>
-                    <button type="button" class="btn btn-dark">Editar</button>
-                </td>
                 <td>
                     <button type="button" class="btn btn-dark">Eliminar</button>
                 </td>
