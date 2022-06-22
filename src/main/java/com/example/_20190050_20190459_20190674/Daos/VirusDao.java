@@ -89,6 +89,22 @@ public class VirusDao extends DaoBase{
         }
     }
 
+    public void eliminarVariante(String id) {
+
+        String sql = "DELETE FROM variante WHERE (`idVariante` = ?);";
+
+        try (Connection connection = this.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setInt(1, Integer.parseInt(id));
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int encontrarIDVirus(String nombre){
         int id=0;
         try (Connection conn = this.getConnection();
@@ -126,21 +142,6 @@ public class VirusDao extends DaoBase{
         }
     }
 
-    public void eliminarVariante(String idVariante) {
-        String sql = "DELETE FROM variante WHERE (idVariante = ?)";
-
-        try (Connection connection = this.getConnection();
-             PreparedStatement pstmt = connection.prepareStatement(sql);) {
-
-            pstmt.setString(1, idVariante);
-
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
     public void eliminarVirus(String idVirus) {
         String sql = "DELETE FROM virus WHERE (id_Virus = ?)";
