@@ -3,6 +3,8 @@
 <%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<jsp:useBean id="moda" scope="request" type="com.example._20190050_20190459_20190674.Beans.Virus"/>
+
 <jsp:useBean id="porcentajeVictimas1" scope="request" type="com.example._20190050_20190459_20190674.Beans.Zombie"/>
 <jsp:useBean id="porcentajeVictimas2" scope="request" type="com.example._20190050_20190459_20190674.Beans.Zombie"/>
 <jsp:useBean id="porcentajeVictimas3" scope="request" type="com.example._20190050_20190459_20190674.Beans.Zombie"/>
@@ -75,7 +77,7 @@
                                                             Variante de virus más común
                                                         </h4>
                                                         <label class="form-label"
-                                                        >Uwu</label
+                                                        ><%=moda.getNombre_variante()%></label
                                                         >
                                                     </div>
                                                     <div class="form-outline mb-4">
