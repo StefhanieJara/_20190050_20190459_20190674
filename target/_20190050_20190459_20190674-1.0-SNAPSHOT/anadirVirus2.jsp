@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,8 +68,8 @@
                         <input
                                 type="text"
                                 id="productName"
+                                name="virus_name"
                                 class="form-control"
-                                name="nombre_virus"
                                 placeholder="Ingrese el virus"
                         />
                       </div>

@@ -1,22 +1,23 @@
 package com.example._20190050_20190459_20190674.Beans;
 
 public class Virus {
-    private String idVirus;
+    private int idVirus;
     private String nombre_virus;
     private String idVariante;
     private String nombre_variante;
     private int casos_encontrados;
 
-
-    private int casos_totales;
-
-    public String getIdVirus() {
+    public int getIdVirus() {
         return idVirus;
     }
 
-    public void setIdVirus(String idVirus) {
+    public void setIdVirus(int idVirus) {
         this.idVirus = idVirus;
     }
+
+    private int casos_totales;
+
+
 
     public String getNombre_virus() {
         return nombre_virus;

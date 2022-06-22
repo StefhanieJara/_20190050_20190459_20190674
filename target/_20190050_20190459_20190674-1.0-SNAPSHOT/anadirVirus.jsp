@@ -58,7 +58,7 @@
                       class="card-header"
                       style="background-color: #e72d4b; color: white"
               >
-                <h4 class="my-2">Registrar Virus</h4>
+                <h4 class="my-2">Registrar Variante</h4>
               </div>
               <div class="card-body p-4 p-md-5">
                 <form method="POST" action="<%=request.getContextPath()%>/MenuVirusServlet?action=guardar">
@@ -67,17 +67,19 @@
                       <div class="form-outline mb-4">
                         <div class="rows-auto">
                           <label class="form-label" for="productName"
-                          >Elija el Virus</label
+                          >Elija la variante</label
                           >
                           <select
                                   class="form-select form-select-sm"
-                                  name="elegirVirus"
+                                  name="virus"
                                   aria-label=".form-select-sm example"
                           >
                             <option value="Selecciona" selected>Selecciona</option>
-                            <%for(Virus virus : listaVirus){%>
-                            <option value="<%=virus.getNombre_virus()%>"><%=virus.getNombre_virus()%></option>
+                            <%for(Virus viruslista : listaVirus){%>
+                            <option value="<%=viruslista.getNombre_virus()%>"><%=viruslista.getNombre_virus()%></option>
                             <%}%>
+                            </option>
+                            <option value="Selecciona la sede">Otro</option>
                           </select>
                         </div>
                       </div>
@@ -88,7 +90,7 @@
                         <input
                                 type="text"
                                 id="productName"
-                                name="variante"
+                                name="nombre_Variante"
                                 class="form-control"
                                 placeholder="Ingrese la variante"
                         />

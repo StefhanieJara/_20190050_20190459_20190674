@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Zombie" %><%--
   Created by IntelliJ IDEA.
   User: stefh
   Date: 20/06/2022
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaZombies" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Zombie>" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,13 +109,23 @@
                     <th>Variante de Virus</th>
                     <th>Número de Victimas</th>
                     <th>Tipo de zombies</th>
+                    <th>Edicion</th>
                 </tr>
                 </thead>
                 <tr>
-                    <td>12345</td>
-                    <td>Mario</td>
-                    <td>Montaneda</td>
-                    <td>20152014</td>
+                        <%for (Zombie virusZombie:listaZombies){%>
+                <tr>
+                    <td><%=virusZombie.getTiempo_inf()%></td>
+                    <td><%=vir.getNombre_virus()%></td>
+                    <td><%=viruslista.getIdVariante()%></td>
+                    <td><%=viruslista.getNombre_variante()%></td>
+                    <td><%=viruslista.getCasos_encontrados()%></td>
+                    <td>
+                        <button type="button" class="btn btn-dark">Editar</button>
+                    </td>
+
+                </tr>
+                <%}%>
                 </tr>
             </table>
         </div>
