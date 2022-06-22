@@ -135,7 +135,7 @@
                     <td><%=viruslista.getNombre_variante()%></td>
                     <td><%=viruslista.getCasos_encontrados()%></td>
                 <td>
-                    <a href="<%=request.getContextPath()%>/MenuVirusServlet?a=borrar&id=<%=viruslista.getNombre_variante()%>"
+                    <a href="<%=request.getContextPath()%>/MenuVirusServlet?a=borrar&id=<%=viruslista.getIdVariante()%>"
                        class="btn btn-danger">Borrar</a>
                 </td>
 

@@ -30,7 +30,11 @@ public class MenuVirusServlet extends HttpServlet {
                 request.setAttribute("listaVirus",virusDao.obtenerVirus_sinRepetir());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("anadirVirus2.jsp");
                 requestDispatcher.forward(request,response);
-
+            }
+            case "borrar" -> {
+                String id = request.getParameter("id");
+                virusDao.eliminarVariante(id);
+                response.sendRedirect(request.getContextPath() + "/MenuVirusServlet");
             }
 
         }
