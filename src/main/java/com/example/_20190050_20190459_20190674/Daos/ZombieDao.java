@@ -13,21 +13,24 @@ public class ZombieDao extends DaoBase{
         ArrayList<Zombie> listaZombie = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select idHumano, nombre_apellido, Sexo, tiempo_inf, var.nombre, victimas, z.tipo, h.id_Virus\n" +
-                     "                     from Humanos h, virus v, variante var, tipo_zombie z \n" +
-                     "                     where h.id_Virus = v.id_Virus and\n" +
-                     "                           v.id_Virus = var.Virus_id_Virus and \n" +
-                     "                           h.idTipo_zombie = z.idTipo_Zombie;");){
+             ResultSet rs = stmt.executeQuery("select idHumano, nombre_apellido, Sexo, var.nombre, victimas, z.tipo, h.variante_idVariante,var.Virus_id_Virus ,truncate(time_to_sec(min(TIMEDIFF(now(), tiempo_inicio))),0)/60 as 'tiempo_infectado', estado\n" +
+                     "                     from Humanos h, virus v, variante var, tipo_zombie z\n" +
+                     "                        where h.variante_idVariante = var.idVariante and\n" +
+                     "                       var.Virus_id_Virus = v.id_Virus and \n" +
+                     "                      h.idTipo_zombie = z.idTipo_Zombie\n" +
+                     "                     group by idHumano;");){
             while (rs.next()){
                 Zombie zombie= new Zombie();
                 zombie.setId(rs.getString(1));
                 zombie.setNombre_apellido(rs.getString(2));
                 zombie.setSexo(rs.getString(4));
-                zombie.setTiempo_inf(rs.getTime(4));
-                zombie.setNombre_variante(rs.getString(5));
-                zombie.setNum_victimas(rs.getInt(6));
-                zombie.setNombre_zombie(rs.getString(7));
+                zombie.setNombre_variante(rs.getString(4));
+                zombie.setNum_victimas(rs.getInt(5));
+                zombie.setNombre_zombie(rs.getString(6));
+                zombie.setId_variante(rs.getInt(7));
                 zombie.setId_virus(rs.getInt(8));
+                zombie.setTiempo_inf(rs.getFloat(9));
+                zombie.setEstado(rs.getInt(10));
 
                 listaZombie.add(zombie);
             }
@@ -39,23 +42,53 @@ public class ZombieDao extends DaoBase{
         return listaZombie;
     }
 
-    public void crearZombie(String idHumano, String nombre_apellido, String sexo, Date tiempo_inf, String id_virus, String tipo_zombie) {
+    public ArrayList<Virus> obtenerVariantes(){
 
-        String sql = "INSERT INTO humanos (`idHumano`, `nombre_apellido`, `Sexo`, `Rol_idRol`, `fuerza`, `peso`, `tiempo_inf`, `victimas`, `id_Virus`, `idTipo_Zombie`) \n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        ArrayList<Virus> listaVariantes = new ArrayList<>();
+        try (Connection conn = this.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM variante;");){
+            while (rs.next()){
+                Virus virus= new Virus();
+                virus.setIdVariante(rs.getString(1));
+                virus.setNombre_variante(rs.getString(2));
+                virus.setIdVirus(Integer.parseInt(rs.getString(3)));
+                listaVariantes.add(virus);
+            }
+
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaVariantes;
+    }
+
+
+    public void crearZombie(String nombre_apellido, String sexo, String tipo_zombie, String id_variante) {
+
+        String sql = "INSERT INTO humanos (`idHumano`, `nombre_apellido`, `Sexo`, `Rol_idRol`, `fuerza`, `peso`, `victimas`, `idTipo_Zombie`, `variante_idVariante`, `tiempo_inicio`, `estado`) \n" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
-            pstmt.setString(1, idHumano);
+
+            String id="";
+            String[] nums = {"0","1","2","3","4","5","6","7","8","9"};
+            for (int i = 0; i < 11; i++ ) {
+                id += nums[(int) Math.round(Math.random() * 9)];
+            }
+
+            pstmt.setString(1, id);
             pstmt.setString(2,nombre_apellido);
             pstmt.setString(3,sexo);
             pstmt.setString(4,"2");
-            pstmt.setFloat(5,50);
-            pstmt.setFloat(6,50);
-            pstmt.setDate(7,tiempo_inf);
-            pstmt.setInt(8,0);
-            pstmt.setString(9,id_virus);
-            pstmt.setString(10,tipo_zombie);
+            pstmt.setFloat(5, 50.0F);
+            pstmt.setFloat(6,50.0f);
+            pstmt.setInt(7,0);
+            pstmt.setString(8,tipo_zombie);
+            pstmt.setString(9,id_variante);
+            pstmt.setString(10, "2022-6-21 00:00:00");
+            pstmt.setInt(11,1);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -65,7 +98,7 @@ public class ZombieDao extends DaoBase{
     public Virus modaEncontrada(String id) {
         Virus virus = null;
 
-        String sql = "select nombre from virus where id_Virus = ?";
+        String sql = "select nombre from variante where idVariante = ?";
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
 
@@ -74,7 +107,7 @@ public class ZombieDao extends DaoBase{
             try (ResultSet rs = pstmt.executeQuery();) {
                 if (rs.next()) {
                     virus = new Virus();
-                    virus.setNombre_virus(rs.getString(1));
+                    virus.setNombre_variante(rs.getString(1));
                 }
             }
         } catch (SQLException e) {
@@ -121,7 +154,7 @@ public class ZombieDao extends DaoBase{
             try (ResultSet rs = pstmt.executeQuery();) {
                 if (rs.next()) {
                     zombie = new Zombie();
-                    zombie.setNum_victimas(rs.getInt(1));
+                    zombie.setProm_victimas(rs.getFloat(1));
                 }
             }
         } catch (SQLException e) {
