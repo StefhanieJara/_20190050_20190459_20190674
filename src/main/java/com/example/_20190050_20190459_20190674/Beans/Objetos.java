@@ -5,18 +5,11 @@ public class Objetos {
     private String nombre_objeto;
     private float peso;
     private int tipo;
+    private String tipoZ;
 
     private int id_vacuna;
     private float efectividad_vacunal;
     private int id_efectividad;
-
-    public int getId_efectividad() {
-        return id_efectividad;
-    }
-
-    public void setId_efectividad(int id_efectividad) {
-        this.id_efectividad = id_efectividad;
-    }
 
     public int getId_objeto() {
         return id_objeto;
@@ -50,6 +43,14 @@ public class Objetos {
         this.tipo = tipo;
     }
 
+    public String getTipoZ() {
+        return tipoZ;
+    }
+
+    public void setTipoZ(String tipoZ) {
+        this.tipoZ = tipoZ;
+    }
+
     public int getId_vacuna() {
         return id_vacuna;
     }
@@ -64,5 +65,13 @@ public class Objetos {
 
     public void setEfectividad_vacunal(float efectividad_vacunal) {
         this.efectividad_vacunal = efectividad_vacunal;
+    }
+
+    public int getId_efectividad() {
+        return id_efectividad;
+    }
+
+    public void setId_efectividad(int id_efectividad) {
+        this.id_efectividad = id_efectividad;
     }
 }

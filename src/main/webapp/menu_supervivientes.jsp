@@ -83,7 +83,7 @@
             <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
-            <li><a href="#">Objetos</a></li>
+            <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
             <li><a href="#">Cacería</a></li>
         </ul>
     </div>

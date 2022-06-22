@@ -30,7 +30,7 @@
             <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
             <li><a href="#">Virus</a></li>
             <li><a href="#">Zoombies</a></li>
-            <li><a href="#">Objetos</a></li>
+            <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
             <li><a href="#">Cacería</a></li>
         </ul>
     </div>
@@ -215,7 +215,7 @@
                                         </ul>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <a href="listaclientesV2.html" class="btn btn-danger"
+                                        <a href="<%=request.getContextPath()%>/ObjetoServlet" class="btn btn-danger"
                                         >Ir a objetos</a
                                         >
                                     </div>

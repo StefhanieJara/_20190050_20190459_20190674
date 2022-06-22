@@ -32,21 +32,21 @@ public class ObjetosDao extends DaoBase {
         return listaObjetos;
     }
 
-    public ArrayList<Objetos> obtenerVacunas_Efectividad(){
+    public ArrayList<Objetos> obtenerVacunas_Efectividad(String idVacuna){
 
         ArrayList<Objetos> listaObjetos = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select idVacuna, ef.idEfectividad ,ef.porcentaje, tz.tipo \n" +
-                     "from vacuna v, efectividad ef, tipo_zombie tz\n" +
-                     "where v.idEfectividad=ef.idEfectividad and\n" +
-                     "      ef.idTipo_Zombie=tz.idTipo_Zombie;");){
+             ResultSet rs = stmt.executeQuery("select v.idVacuna, ef.idEfectividad ,ef.porcentaje, tz.tipo \n" +
+                     "                     from vacuna v, efectividad ef, tipo_zombie tz\n" +
+                     "                     where v.idEfectividad=ef.idEfectividad and\n" +
+                     "               ef.idTipo_Zombie=tz.idTipo_Zombie and v.idVacuna = "+idVacuna+";\n");){
             while (rs.next()){
                 Objetos objetos= new Objetos();
-                objetos.setId_objeto(rs.getInt(1));
-                objetos.setNombre_objeto(rs.getString(2));
-                objetos.setPeso(rs.getFloat(3));
-                objetos.setId_vacuna(rs.getInt(4));
+                objetos.setTipoZ(rs.getString(4));
+                objetos.setEfectividad_vacunal(rs.getFloat(3));
+                objetos.setId_efectividad(rs.getInt(2));
+                objetos.setId_vacuna(rs.getInt(1));
 
                 listaObjetos.add(objetos);
             }

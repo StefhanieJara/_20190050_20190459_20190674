@@ -72,7 +72,7 @@
                                                         >
                                                         <div >
                                                             <%=listaObjetos.get(0).getEfectividad_vacunal()%>
-
+                                                     
                                                         </div>
                                                     </div>
                                                 </div>

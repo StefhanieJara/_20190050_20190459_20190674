@@ -62,27 +62,15 @@
                   <div class="row">
                     <div class="col-md-6 mb-1">
                       <div class="form-outline mb-4">
-                        <div class="rows-auto">
-                          <label class="form-label" for="productName"
-                          >Elija la variante</label
-                          >
-                          <select
-                                  class="form-select form-select-sm"
-                                  name="filtro"
-                                  aria-label=".form-select-sm example"
-                          >
-                            <option value="Selecciona la sede">
-                              Selecciona el virus
-                            </option>
-                            <option value="Selecciona la sede">
-                              Omicron
-                            </option>
-                            <option value="Selecciona la sede">
-                              Influencia
-                            </option>
-                            <option value="Selecciona la sede">Otro</option>
-                          </select>
-                        </div>
+                        <label class="form-label" for="productName"
+                        >Virus</label
+                        >
+                        <input
+                                type="text"
+                                id="productName"
+                                class="form-control"
+                                placeholder="Ingrese el virus"
+                        />
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="productName"

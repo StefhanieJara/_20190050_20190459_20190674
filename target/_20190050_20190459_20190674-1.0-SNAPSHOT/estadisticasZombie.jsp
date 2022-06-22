@@ -1,8 +1,11 @@
-<%@ page import="java.util.Objects" %>
-<%@ page import="com.example._20190050_20190459_20190674.Beans.Objetos" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 21/06/2022
+  Time: 11:56
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Objetos>" />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +54,7 @@
                                     class="card-header"
                                     style="background-color: #e72d4b; color: white"
                             >
-                                <h4 class="my-2">Efectividad por tipo de Zombie</h4>
+                                <h4 class="my-2">Estadisticas</h4>
                             </div>
                             <div class="card-body p-4 p-md-5">
                                 <form>
@@ -62,40 +65,43 @@
                                                         class="pb-2 border-bottom"
                                                         style="color: #f57f00"
                                                 >
-                                                    Demoledor
+                                                    Variante de virus más común
                                                 </h4>
-
-                                                <div class="form-outline mb-4">
-                                                    <div class="rows-auto">
-                                                        <label class="form-label" for="productName"
-                                                        >Porcentaje</label
-                                                        >
-                                                        <div >
-                                                            <%=listaObjetos.get(0).getEfectividad_vacunal()%>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <label class="form-label" for="productName"
+                                                >Uwu</label
+                                                >
                                             </div>
                                             <div class="form-outline mb-4">
                                                 <h4
                                                         class="pb-2 border-bottom"
                                                         style="color: #f57f00"
                                                 >
-                                                    Rápido
+                                                    Promedio de Victimas por Zombie
+                                                </h4>
+                                                <label class="form-label" for="productName"
+                                                >Uwu</label
+                                                >
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <h4
+                                                        class="pb-2 border-bottom"
+                                                        style="color: #f57f00"
+                                                >
+                                                    Porcentaje de Zombies
                                                 </h4>
 
                                                 <div class="form-outline mb-4">
                                                     <div class="rows-auto">
                                                         <label class="form-label" for="productName"
-                                                        >Porcentaje</label
+                                                        >Mujeres</label
                                                         >
                                                         <div class="progress">
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(1).getEfectividad_vacunal()%>"
-                                                                    aria-valuenow="<%=listaObjetos.get(1).getEfectividad_vacunal()%>"
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -104,26 +110,17 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <h4
-                                                        class="pb-2 border-bottom"
-                                                        style="color: #f57f00"
-                                                >
-                                                    Niño
-                                                </h4>
-
                                                 <div class="form-outline mb-4">
                                                     <div class="rows-auto">
                                                         <label class="form-label" for="productName"
-                                                        >Porcentaje</label
+                                                        >Hombres</label
                                                         >
                                                         <div class="progress">
                                                             <div
-                                                                    class="progress-bar bg-danger"
+                                                                    class="progress-bar bg-success"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(2).getEfectividad_vacunal()%>"
-                                                                    aria-valuenow="<%=listaObjetos.get(2).getEfectividad_vacunal()%>"
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -132,54 +129,17 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <h4
-                                                        class="pb-2 border-bottom"
-                                                        style="color: #f57f00"
-                                                >
-                                                    Normal
-                                                </h4>
-
                                                 <div class="form-outline mb-4">
                                                     <div class="rows-auto">
                                                         <label class="form-label" for="productName"
-                                                        >Porcentaje</label
+                                                        >Otros</label
                                                         >
                                                         <div class="progress">
                                                             <div
-                                                                    class="progress-bar bg-danger"
+                                                                    class="progress-bar"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(3).getEfectividad_vacunal()%>"
-                                                                    aria-valuenow="<%=listaObjetos.get(3).getEfectividad_vacunal()%>"
-                                                                    aria-valuemin="0"
-                                                                    aria-valuemax="100"
-                                                            >
-                                                                25%
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <h4
-                                                        class="pb-2 border-bottom"
-                                                        style="color: #f57f00"
-                                                >
-                                                    Otro
-                                                </h4>
-
-                                                <div class="form-outline mb-4">
-                                                    <div class="rows-auto">
-                                                        <label class="form-label" for="productName"
-                                                        >Porcentaje</label
-                                                        >
-                                                        <div class="progress">
-                                                            <div
-                                                                    class="progress-bar bg-danger"
-                                                                    role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(4).getEfectividad_vacunal()%>"
-                                                                    aria-valuenow="<%=listaObjetos.get(4).getEfectividad_vacunal()%>"
+                                                                    style="width: 25%"
+                                                                    aria-valuenow="25"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
@@ -193,10 +153,10 @@
 
                                         <div class="col-md-6 mb-4 text-center">
                                             <img
-                                                    src="img/variante.jpg"
+                                                    src="img/estadisticas.jpg"
                                                     class="img-thumbnail"
-                                                    width="800px"
-                                                    height="800px"
+                                                    width="300px"
+                                                    height="500px"
                                                     alt=""
                                             />
                                         </div>
@@ -222,3 +182,4 @@
 </div>
 </body>
 </html>
+
