@@ -23,6 +23,13 @@ public class MenuCaceriaServlet extends HttpServlet {
                 RequestDispatcher view =request.getRequestDispatcher("caceria.jsp");
                 view.forward(request,response);
             }
+            case "batalla"->{
+                request.setAttribute("listaSupervivientes",caceriaDao.obtenerSuperviviente());
+                request.setAttribute("listaZombies",zombieDao.obtenerZombies());
+                RequestDispatcher view =request.getRequestDispatcher("empesar_batalla.jsp");
+                view.forward(request,response);
+
+            }
         }
     }
 

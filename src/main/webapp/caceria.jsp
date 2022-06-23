@@ -72,7 +72,7 @@
 </head>
 <body>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/MenuCaceriaServlet?a=batalla"
         class="btn-float3"
         style="margin-right: 10px"
 >
