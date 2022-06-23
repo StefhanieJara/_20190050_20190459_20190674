@@ -1,18 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: stefh
-  Date: 22/06/2022
-  Time: 21:36
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Zombie" %>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaSupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>" />
+<jsp:useBean id="listaZombies" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Zombie>" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern NavBar + Underline</title>
+    <title>Caceria</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,8 +111,10 @@
                         </tr>
                         </thead>
                         <tr>
-                            <td>Juanito Perez</td>
-                            <td>2</td>
+                            <%for(Zombie listaZombie: listaZombies){%>
+                            <td><%=listaZombie.getNombre_apellido()%></td>
+                            <td><%=listaZombie.getNum_victimas()%></td>
+                            <%}%>
                         </tr>
                     </table>
                 </div>
@@ -125,15 +125,15 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Ganador</th>
                             <th>Nombre del Humano</th>
                             <th>Cantidad de Vacunas</th>
                         </tr>
                         </thead>
                         <tr>
-                            <td>Juanti Perez</td>
-                            <td>Hola</td>
-                            <td>4</td>
+                            <%for(Superviviente listasuperviviente: listaSupervivientes){%>
+                            <td><%=listasuperviviente.getNombre_apellido()%></td>
+                            <td><%=listasuperviviente.getCantidad_vacunas()%></td>
+                            <%}%>
                         </tr>
                     </table>
                 </div>
