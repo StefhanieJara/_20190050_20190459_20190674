@@ -23,7 +23,8 @@
 <body>
 <div class="container">
     <div class="navbar">
-        <img src="img/logo.png" class="logo" alt="Main Logo" />
+        <a href="index.jsp"><img src="img/logo.png" class="logo" alt="Main Logo" /></a>
+
 
         <ul>
             <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
@@ -147,7 +148,7 @@
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <a
-                                                href="visualizacionOperadores.html"
+                                                href="<%=request.getContextPath()%>/MenuVirusServlet"
                                                 class="btn btn-danger"
                                         >Ir a Virus</a
                                         >
@@ -183,7 +184,7 @@
                                         </ul>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <a href="listaclientesV2.html" class="btn btn-danger"
+                                        <a href="<%=request.getContextPath()%>/MenuZombiesServlet" class="btn btn-danger"
                                         >Ir a Zombies</a
                                         >
                                     </div>
