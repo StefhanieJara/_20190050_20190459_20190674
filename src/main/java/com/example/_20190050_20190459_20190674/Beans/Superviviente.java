@@ -6,6 +6,15 @@ public class Superviviente extends Humano{
     private float fuerza;
     private String pareja;
     private float peso_cargado;
+    private int cantidad_vacunas;
+
+    public int getCantidad_vacunas() {
+        return cantidad_vacunas;
+    }
+
+    public void setCantidad_vacunas(int cantidad_vacunas) {
+        this.cantidad_vacunas = cantidad_vacunas;
+    }
 
     public float getPeso() {
         return peso;
