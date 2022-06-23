@@ -68,7 +68,7 @@
 </head>
 <body>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/CrearObjetoServlet"
         class="btn-float"
         style="margin-right: 100px"
 >

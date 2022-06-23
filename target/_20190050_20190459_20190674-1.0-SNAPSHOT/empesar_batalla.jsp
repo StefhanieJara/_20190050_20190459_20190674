@@ -1,4 +1,10 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: stefh
+  Date: 22/06/2022
+  Time: 21:45
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,35 +54,55 @@
                                     class="card-header"
                                     style="background-color: #e72d4b; color: white"
                             >
-                                <h4 class="my-2">Agregar Objeto</h4>
+                                <h4 class="my-2">Batalla</h4>
                             </div>
                             <div class="card-body p-4 p-md-5">
-                                <form method="post"action="<%=request.getContextPath()%>/CrearObjetoServlet">
+                                <form>
                                     <div class="row">
                                         <div class="col-md-6 mb-1">
                                             <div class="form-outline mb-4">
-                                                <label class="form-label" for="productName"
-                                                >Nombre del objeto</label
-                                                >
-                                                <input
-                                                        type="text"
-                                                        id="productName"
-                                                        name="nombre"
-                                                        class="form-control"
-                                                        placeholder="Ingrese nombre del objeto"
-                                                />
+                                                <div class="rows-auto">
+                                                    <select
+                                                            class="form-select form-select-sm"
+                                                            name="sexo"
+                                                            aria-label=".form-select-sm example"
+                                                    >
+                                                        <option value="O">
+                                                            Selecciona el humano
+                                                        </option>
+                                                        <option value="M">
+                                                            Masculino
+                                                        </option>
+                                                        <option value="F">
+                                                            Femenino
+                                                        </option>
+                                                        <option value="O">
+                                                            Otro
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <label class="form-label" for="productName"
-                                                >Peso</label
-                                                >
-                                                <input
-                                                        type="numero"
-                                                        id="productName"
-                                                        name="peso"
-                                                        class="form-control"
-                                                        placeholder="Ingrese el peso"
-                                                />
+                                                <div class="rows-auto">
+                                                    <select
+                                                            class="form-select form-select-sm"
+                                                            name="sexo"
+                                                            aria-label=".form-select-sm example"
+                                                    >
+                                                        <option value="O">
+                                                            Selecciona el zombie
+                                                        </option>
+                                                        <option value="M">
+                                                            Masculino
+                                                        </option>
+                                                        <option value="F">
+                                                            Femenino
+                                                        </option>
+                                                        <option value="O">
+                                                            Otro
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
 
                                             <div class="form-outline mb-4">
@@ -103,10 +129,9 @@
                                         <input
                                                 class="btn btn-tele"
                                                 type="submit"
-                                                value="Guardar objeto"
+                                                value="Empezar"
                                         />
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -119,4 +144,5 @@
 </div>
 </body>
 </html>
+
 

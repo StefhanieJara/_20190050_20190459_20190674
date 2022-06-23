@@ -51,7 +51,7 @@
                                 <h4 class="my-2">Agregar Objeto</h4>
                             </div>
                             <div class="card-body p-4 p-md-5">
-                                <form>
+                                <form method="post"action="<%=request.getContextPath()%>/CrearObjetoServlet">
                                     <div class="row">
                                         <div class="col-md-6 mb-1">
                                             <div class="form-outline mb-4">
@@ -61,6 +61,7 @@
                                                 <input
                                                         type="text"
                                                         id="productName"
+                                                        name="nombre"
                                                         class="form-control"
                                                         placeholder="Ingrese nombre del objeto"
                                                 />
@@ -72,6 +73,7 @@
                                                 <input
                                                         type="numero"
                                                         id="productName"
+                                                        name="peso"
                                                         class="form-control"
                                                         placeholder="Ingrese el peso"
                                                 />
@@ -104,6 +106,7 @@
                                                 value="Guardar objeto"
                                         />
                                     </div>
+                                </form>
                             </div>
                         </div>
                     </div>
