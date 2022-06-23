@@ -26,6 +26,7 @@ public class MenuSupervivientesServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         filtro = (String) request.getParameter("filtro");
+
         response.sendRedirect(request.getContextPath()+"/MenuSupervivientesServlet");
     }
 }
