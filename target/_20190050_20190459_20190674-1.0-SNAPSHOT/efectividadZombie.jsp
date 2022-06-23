@@ -70,9 +70,17 @@
                                                         <label class="form-label" for="productName"
                                                         >Porcentaje</label
                                                         >
-                                                        <div >
-                                                            <%=listaObjetos.get(0).getEfectividad_vacunal()%>
-
+                                                        <div class="progress">
+                                                            <div
+                                                                    class="progress-bar bg-danger"
+                                                                    role="progressbar"
+                                                                    style="width: <%=listaObjetos.get(0).getEfectividad_vacunal()%>%"
+                                                                    aria-valuenow="<%=listaObjetos.get(0).getEfectividad_vacunal()%>"
+                                                                    aria-valuemin="0"
+                                                                    aria-valuemax="100"
+                                                            >
+                                                                <%=listaObjetos.get(0).getEfectividad_vacunal()%>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,12 +102,12 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(1).getEfectividad_vacunal()%>"
+                                                                    style="width: <%=listaObjetos.get(1).getEfectividad_vacunal()%>%"
                                                                     aria-valuenow="<%=listaObjetos.get(1).getEfectividad_vacunal()%>"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
-                                                                25%
+                                                                <%=listaObjetos.get(1).getEfectividad_vacunal()%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -122,12 +130,12 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(2).getEfectividad_vacunal()%>"
+                                                                    style="width: <%=listaObjetos.get(2).getEfectividad_vacunal()%>%"
                                                                     aria-valuenow="<%=listaObjetos.get(2).getEfectividad_vacunal()%>"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
-                                                                25%
+                                                                <%=listaObjetos.get(2).getEfectividad_vacunal()%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -150,12 +158,12 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(3).getEfectividad_vacunal()%>"
+                                                                    style="width: <%=listaObjetos.get(3).getEfectividad_vacunal()%>%"
                                                                     aria-valuenow="<%=listaObjetos.get(3).getEfectividad_vacunal()%>"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
-                                                                25%
+                                                                <%=listaObjetos.get(3).getEfectividad_vacunal()%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -178,12 +186,12 @@
                                                             <div
                                                                     class="progress-bar bg-danger"
                                                                     role="progressbar"
-                                                                    style="width: <%=listaObjetos.get(4).getEfectividad_vacunal()%>"
+                                                                    style="width: <%=listaObjetos.get(4).getEfectividad_vacunal()%>%"
                                                                     aria-valuenow="<%=listaObjetos.get(4).getEfectividad_vacunal()%>"
                                                                     aria-valuemin="0"
                                                                     aria-valuemax="100"
                                                             >
-                                                                25%
+                                                                <%=listaObjetos.get(4).getEfectividad_vacunal()%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -203,11 +211,11 @@
                                     </div>
 
                                     <div class="">
-                                        <input
+                                        <a
                                                 class="btn btn-tele"
                                                 type="submit"
-                                                value="Regresar a la lista"
-                                        />
+                                                href="<%=request.getContextPath()%>/ObjetoServlet"
+                                        >Regresar</a>
                                     </div>
                                 </form>
                             </div>

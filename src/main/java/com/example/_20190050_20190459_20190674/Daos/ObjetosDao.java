@@ -37,16 +37,12 @@ public class ObjetosDao extends DaoBase {
         ArrayList<Objetos> listaObjetos = new ArrayList<>();
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("select v.idVacuna, ef.idEfectividad ,ef.porcentaje, tz.tipo \n" +
-                     "                     from vacuna v, efectividad ef, tipo_zombie tz\n" +
-                     "                     where v.idEfectividad=ef.idEfectividad and\n" +
-                     "               ef.idTipo_Zombie=tz.idTipo_Zombie and v.idVacuna = "+idVacuna+";\n");){
+             ResultSet rs = stmt.executeQuery("select * from efectividad where vacuna_idVacuna ="+idVacuna+";");){
             while (rs.next()){
                 Objetos objetos= new Objetos();
-                objetos.setTipoZ(rs.getString(4));
+
                 objetos.setEfectividad_vacunal(rs.getFloat(3));
-                objetos.setId_efectividad(rs.getInt(2));
-                objetos.setId_vacuna(rs.getInt(1));
+
 
                 listaObjetos.add(objetos);
             }
