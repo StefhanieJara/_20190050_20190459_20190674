@@ -87,36 +87,46 @@
                                                         >
                                                             Promedio de Victimas por Zombie
                                                         </h4>
-                                                        <label class="form-label"
-                                                        >Demoledor:
+                                                        <div>
                                                             <label class="form-label"
-                                                            ><%=porcentajeVictimas1.getProm_victimas()%></label
-                                                            ></label
-                                                        >
-                                                        <label class="form-label"
-                                                        >rapido:
+                                                            >Demoledor:
+                                                                <label class="form-label"
+                                                                ><%=porcentajeVictimas1.getProm_victimas()%></label
+                                                                ></label
+                                                            >
+                                                        </div>
+                                                        <div>
                                                             <label class="form-label"
-                                                            ><%=porcentajeVictimas2.getProm_victimas()%></label
-                                                            ></label
-                                                        >
-                                                        <label class="form-label"
-                                                        >niño:
+                                                            >rapido:
+                                                                <label class="form-label"
+                                                                ><%=porcentajeVictimas2.getProm_victimas()%></label
+                                                                ></label
+                                                            >
+                                                        </div>
+                                                        <div>
                                                             <label class="form-label"
-                                                            ><%=porcentajeVictimas3.getProm_victimas()%></label
-                                                            ></label
-                                                        >
-                                                        <label class="form-label"
-                                                        >normal:
+                                                            >niño:
+                                                                <label class="form-label"
+                                                                ><%=porcentajeVictimas3.getProm_victimas()%></label
+                                                                ></label
+                                                            >
+                                                        </div>
+                                                        <div>
                                                             <label class="form-label"
-                                                            ><%=porcentajeVictimas4.getProm_victimas()%></label
-                                                            ></label
-                                                        >
-                                                        <label class="form-label"
-                                                        >otro:
+                                                            >normal:
+                                                                <label class="form-label"
+                                                                ><%=porcentajeVictimas4.getProm_victimas()%></label
+                                                                ></label
+                                                            >
+                                                        </div>
+                                                        <div>
                                                             <label class="form-label"
-                                                            ><%=porcentajeVictimas5.getProm_victimas()%></label
-                                                            ></label
-                                                        >
+                                                            >otro:
+                                                                <label class="form-label"
+                                                                ><%=porcentajeVictimas5.getProm_victimas()%></label
+                                                                ></label
+                                                            >
+                                                        </div>
                                                     </div>
 
                                                     <div class="form-outline mb-4">
@@ -189,7 +199,7 @@
 
                                                 <div class="col-md-6 mb-4 text-center">
                                                     <img
-                                                            src="img/estadisticas.jpg"
+                                                            src="img/variante.jpg"
                                                             class="img-thumbnail"
                                                             width="300px"
                                                             height="500px"
@@ -199,11 +209,8 @@
                                             </div>
 
                                             <div class="">
-                                                <input
-                                                        class="btn btn-tele"
-                                                        type="submit"
-                                                        value="Regresar a la lista"
-                                                />
+                                                <a href="MenuZombiesServlet" type="button" class="btn btn-dark">Regresar a la lista
+                                                </a>
                                             </div>
                                         </form>
                                     </div>

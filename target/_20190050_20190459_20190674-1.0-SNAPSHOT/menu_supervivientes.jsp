@@ -108,7 +108,7 @@
                             aria-label=".form-select-sm example"
 
                     >
-                        <option value="Selecciona la sede">Selecciona el género</option>
+                        <option value="Seleccionar genero">Selecciona el género</option>
                         <option value="F">Mujer</option>
                         <option value="M">Hombre</option>
                         <option value="O">Otro</option>
@@ -144,10 +144,8 @@
                     </td>
                     <td><%=superviviente.getPeso_cargado()%></td>
                     <td>
-                        <form method="POST" action="<%=request.getContextPath()%>/BorrarSupervivienteServlet">
-                             <div style="display: none" name="id"><%=superviviente.getId()%></div>
-                             <button type ="submit"class="btn btn-danger">Eliminar</button>
-                        </form>
+                        <a href="<%=request.getContextPath()%>/BorrarSupervivienteServlet?a=borrar&id=<%=superviviente.getId()%>"><button
+                                type="button" class="btn btn-danger" >Eliminar</button> </a>
                     </td>
                 </tr>
                 <%}%>
