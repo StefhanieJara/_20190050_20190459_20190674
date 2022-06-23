@@ -248,7 +248,7 @@
                                         </ul>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <a href="listaclientesV2.html" class="btn btn-danger"
+                                        <a href="<%=request.getContextPath()%>/MenuCaceriaServlet" class="btn btn-danger"
                                         >Ir a cacería</a
                                         >
                                     </div>
