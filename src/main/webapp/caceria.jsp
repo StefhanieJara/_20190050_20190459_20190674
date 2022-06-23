@@ -36,7 +36,7 @@
         #main-container2 {
             margin-left: 400px;
             width: 1000px;
-            margin-top: -132px;
+            margin-top: -350px;
         }
         .busqueda {
             margin-left: auto;
@@ -110,12 +110,12 @@
                             <th>Número de Victimas</th>
                         </tr>
                         </thead>
+                        <%for(Zombie listaZombie: listaZombies){%>
                         <tr>
-                            <%for(Zombie listaZombie: listaZombies){%>
                             <td><%=listaZombie.getNombre_apellido()%></td>
                             <td><%=listaZombie.getNum_victimas()%></td>
-                            <%}%>
                         </tr>
+                        <%}%>
                     </table>
                 </div>
             </td>
@@ -129,12 +129,12 @@
                             <th>Cantidad de Vacunas</th>
                         </tr>
                         </thead>
+                        <%for(Superviviente listasuperviviente: listaSupervivientes){%>
                         <tr>
-                            <%for(Superviviente listasuperviviente: listaSupervivientes){%>
                             <td><%=listasuperviviente.getNombre_apellido()%></td>
                             <td><%=listasuperviviente.getCantidad_vacunas()%></td>
-                            <%}%>
                         </tr>
+                        <%}%>
                     </table>
                 </div>
             </td>
