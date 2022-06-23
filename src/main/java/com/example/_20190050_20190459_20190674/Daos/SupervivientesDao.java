@@ -17,24 +17,24 @@ public class SupervivientesDao extends DaoBase {
         if(parametro==null){
             sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
                     "from Humanos h\n" +
-                    "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1';\n";
+                    "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.estado='1';\n";
         }else {
             if(parametro.equals("M")){
                 sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
                         "from Humanos h\n" +
-                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='M'\n;";
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='M' and h.estado='1'\n;";
             }else if(parametro.equals("F")){
                 sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
                         "from Humanos h\n" +
-                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='F'\n;";
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='F' and h.estado='1'\n;";
             }else if(parametro.equals("O")){
                 sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
                         "from Humanos h\n" +
-                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='O'\n;";
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1' and h.sexo='O' and h.estado='1'\n;";
             }else{
                 sql = "select h.idHumano, h.nombre_apellido, h.sexo, h.peso, h.fuerza, hum.nombre_apellido\n" +
                         "from Humanos h\n" +
-                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1';\n";
+                        "left join Humanos hum on h.idHumano_pareja = hum.idHumano where h.Rol_idRol='1'and h.estado='1';\n";
             }
         }
         try (Connection conn = this.getConnection();
@@ -105,7 +105,7 @@ public class SupervivientesDao extends DaoBase {
 
     public void eliminarSuperviviente(String id) {
 
-        String sql = "DELETE FROM humanos WHERE (idHumano = ?)";
+        String sql = "UPDATE humanos set estado = '0' where idHumano = ?";
 
         try (Connection connection = this.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sql);) {

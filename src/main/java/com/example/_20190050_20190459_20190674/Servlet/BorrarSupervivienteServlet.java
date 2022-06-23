@@ -13,15 +13,21 @@ import static java.lang.Float.valueOf;
 public class BorrarSupervivienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
+         SupervivientesDao supervivientesDao = new SupervivientesDao();
+        switch (action){
+            case "borrar"->{
+                String id = request.getParameter("id");
+                System.out.println(id);
+                supervivientesDao.eliminarSuperviviente(id);
+                response.sendRedirect(request.getContextPath() + "/MenuSupervivientesServlet");
+            }
+        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        SupervivientesDao supervivientesDao = new SupervivientesDao();
-         String id = request.getParameter("id");
-         supervivientesDao.eliminarSuperviviente(id);
-        response.sendRedirect(request.getContextPath()+"/MenuSupervivientesServlet");
+
     }
 }
