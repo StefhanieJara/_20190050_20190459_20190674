@@ -30,7 +30,12 @@ public class MenuAnadirSupervivienteServlet extends HttpServlet {
         String fuerza = (String)request.getParameter("fuerza");
         String peso = (String)request.getParameter("peso");
         String idPareja = (String) request.getParameter("filtro");
-        supervivientesDao.crearSupervivencia(name,sexo,valueOf(fuerza),valueOf(peso),idPareja);
+        if(idPareja.equals("nada")){
+            supervivientesDao.crearSupervivencia(name,sexo,valueOf(fuerza),valueOf(peso),null);
+        }else{
+            supervivientesDao.crearSupervivencia(name,sexo,valueOf(fuerza),valueOf(peso),idPareja);
+        }
+
         response.sendRedirect(request.getContextPath()+"/MenuSupervivientesServlet");
     }
 }

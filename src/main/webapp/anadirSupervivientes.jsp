@@ -75,7 +75,7 @@
                                   name="sexo"
                                   aria-label=".form-select-sm example"
                           >
-                            <option value="">
+                            <option value="O">
                               Selecciona el género
                             </option>
                             <option value="M">
