@@ -75,7 +75,7 @@
     <i class="fas fa-plus my-float"></i>
 </a>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/anadirVacuna.jsp"
         class="btn-float2"
         style="margin-right: 10px"
 >
