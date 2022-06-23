@@ -21,7 +21,7 @@ public class MenuVirusServlet extends HttpServlet {
                 requestDispatcher.forward(request,response);
             }
             case "crear" ->{
-                request.setAttribute("listaVirus",virusDao.obtenerVirus_sinRepetir());
+                request.setAttribute("listaVirus2",virusDao.obtenerVirus_sinRepetir());
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("anadirVirus.jsp");
                 requestDispatcher.forward(request,response);
 

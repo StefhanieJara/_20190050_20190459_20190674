@@ -34,7 +34,7 @@
 <body>
 <div class="container">
   <div class="navbar">
-    <img src="img/logo.png" class="logo" alt="Main Logo" />
+    <a href="index.jsp"><img src="img/logo.png" class="logo" alt="Main Logo" /></a>
 
     <ul>
       <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
@@ -75,7 +75,7 @@
                                   aria-label=".form-select-sm example"
                           >
                             <option value="Selecciona" selected>Selecciona</option>
-                            <%for(Virus viruslista : listaVirus){%>
+                            <%for(Virus viruslista : listaVirus2){%>
                             <option value="<%=viruslista.getNombre_virus()%>"><%=viruslista.getNombre_virus()%></option>
                             <%}%>
                             </option>

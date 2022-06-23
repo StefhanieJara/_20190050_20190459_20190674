@@ -1,18 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: stefh
-  Date: 22/06/2022
-  Time: 21:36
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Zombie" %>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaSupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>" />
+<jsp:useBean id="listaZombies" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Zombie>" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern NavBar + Underline</title>
+    <title>Caceria</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +36,7 @@
         #main-container2 {
             margin-left: 400px;
             width: 1000px;
-            margin-top: -132px;
+            margin-top: -350px;
         }
         .busqueda {
             margin-left: auto;
@@ -74,7 +72,7 @@
 </head>
 <body>
 <a
-        href="registrarCelebridad.html"
+        href="<%=request.getContextPath()%>/MenuCaceriaServlet?a=batalla"
         class="btn-float3"
         style="margin-right: 10px"
 >
@@ -83,15 +81,15 @@
 
 <div class="container">
     <div class="navbar">
-        <img src="img/logo.png" class="logo" alt="Main Logo" />
+        <a href="index.jsp"><img src="img/logo.png" class="logo" alt="Main Logo" /></a>
 
         <ul>
-            <li><a href="#">Humanos</a></li>
-            <li><a href="#">Supervivientes</a></li>
-            <li><a href="#">Virus</a></li>
-            <li><a href="#">Zoombies</a></li>
-            <li><a href="#">Objetos</a></li>
-            <li><a href="#">Cacería</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuSupervivientesServlet">Supervivientes</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuVirusServlet">Virus</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuZombiesServlet">Zoombies</a></li>
+            <li><a href="<%=request.getContextPath()%>/ObjetoServlet">Objetos</a></li>
+            <li><a href="<%=request.getContextPath()%>/MenuCaceriaServlet">Cacería</a></li>
         </ul>
     </div>
     <main>
@@ -112,10 +110,12 @@
                             <th>Número de Victimas</th>
                         </tr>
                         </thead>
+                        <%for(Zombie listaZombie: listaZombies){%>
                         <tr>
-                            <td>Juanito Perez</td>
-                            <td>2</td>
+                            <td><%=listaZombie.getNombre_apellido()%></td>
+                            <td><%=listaZombie.getNum_victimas()%></td>
                         </tr>
+                        <%}%>
                     </table>
                 </div>
             </td>
@@ -125,16 +125,16 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Ganador</th>
                             <th>Nombre del Humano</th>
                             <th>Cantidad de Vacunas</th>
                         </tr>
                         </thead>
+                        <%for(Superviviente listasuperviviente: listaSupervivientes){%>
                         <tr>
-                            <td>Juanti Perez</td>
-                            <td>Hola</td>
-                            <td>4</td>
+                            <td><%=listasuperviviente.getNombre_apellido()%></td>
+                            <td><%=listasuperviviente.getCantidad_vacunas()%></td>
                         </tr>
+                        <%}%>
                     </table>
                 </div>
             </td>

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Zombie" %>
+<%@ page import="com.example._20190050_20190459_20190674.Beans.Superviviente" %><%--
   Created by IntelliJ IDEA.
   User: stefh
   Date: 22/06/2022
@@ -6,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaSupervivientes" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Superviviente>" />
+<jsp:useBean id="listaZombies" scope="request" type="java.util.ArrayList<com.example._20190050_20190459_20190674.Beans.Zombie>" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +33,7 @@
 <body>
 <div class="container">
     <div class="navbar">
-        <img src="img/logo.png" class="logo" alt="Main Logo" />
+        <a href="index.jsp"><img src="img/logo.png" class="logo" alt="Main Logo" /></a>
 
         <ul>
             <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
@@ -67,17 +70,10 @@
                                                             name="sexo"
                                                             aria-label=".form-select-sm example"
                                                     >
-                                                        <option value="O">
-                                                            Selecciona el humano
-                                                        </option>
-                                                        <option value="M">
-                                                            Masculino
-                                                        </option>
-                                                        <option value="F">
-                                                            Femenino
-                                                        </option>
-                                                        <option value="O">
-                                                            Otro
+                                                        <option value="Selecciona" selected>Selecciona Zombie</option>
+                                                        <%for(Zombie listaZombie: listaZombies){%>
+                                                        <option value="<%=listaZombie.getNombre_apellido()%>"><%=listaZombie.getNombre_apellido()%></option>
+                                                        <%}%>
                                                         </option>
                                                     </select>
                                                 </div>
@@ -89,17 +85,10 @@
                                                             name="sexo"
                                                             aria-label=".form-select-sm example"
                                                     >
-                                                        <option value="O">
-                                                            Selecciona el zombie
-                                                        </option>
-                                                        <option value="M">
-                                                            Masculino
-                                                        </option>
-                                                        <option value="F">
-                                                            Femenino
-                                                        </option>
-                                                        <option value="O">
-                                                            Otro
+                                                        <option value="Selecciona" selected>Selecciona Humano</option>
+                                                        <%for(Superviviente listasuperviviente: listaSupervivientes){%>
+                                                        <option value="<%=listasuperviviente.getNombre_apellido()%>"><%=listasuperviviente.getNombre_apellido()%></option>
+                                                        <%}%>
                                                         </option>
                                                     </select>
                                                 </div>
