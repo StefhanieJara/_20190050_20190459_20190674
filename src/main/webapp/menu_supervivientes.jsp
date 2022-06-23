@@ -76,7 +76,7 @@
 </a>
 <div class="container">
     <div class="navbar">
-        <img src="img/logo.png" class="logo" alt="Main Logo" />
+        <a href="index.jsp"><img src="img/logo.png" class="logo" alt="Main Logo" /></a>
 
         <ul>
             <li><a href="<%=request.getContextPath()%>/MenuHumanosServlet">Humanos</a></li>
