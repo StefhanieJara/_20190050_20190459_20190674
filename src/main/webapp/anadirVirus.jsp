@@ -75,7 +75,7 @@
                                   aria-label=".form-select-sm example"
                           >
                             <option value="Selecciona" selected>Selecciona</option>
-                            <%for(Virus viruslista : listaVirus){%>
+                            <%for(Virus viruslista : listaVirus2){%>
                             <option value="<%=viruslista.getNombre_virus()%>"><%=viruslista.getNombre_virus()%></option>
                             <%}%>
                             </option>
